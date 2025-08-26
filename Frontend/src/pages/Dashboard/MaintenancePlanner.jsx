@@ -3,18 +3,13 @@ import {
   FaCircle,
   FaChevronLeft,
   FaChevronRight,
-  FaPlus,
-  FaBell,
-  FaCog,
-  FaBox,
-  FaClipboardList,
   FaChevronDown,
   FaChevronUp,
 } from "react-icons/fa";
 import { IoSearchOutline } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 const MaintenancePlanner = () => {
-  const [activeTab, setActiveTab] = useState("Trends");
   const [accordionStates, setAccordionStates] = useState({
     Werk: true,
     Linie: true,
@@ -28,17 +23,6 @@ const MaintenancePlanner = () => {
     }));
   };
   const [currentDate, setCurrentDate] = useState(new Date(2025, 7, 1)); // August 2025
-
-  // Sample data
-  // const tickets = [
-  //   { id: "T-012", status: "Offen", machine: "M-001" },
-  //   { id: "T-001", status: "In Arbeit", machine: "T-005" },
-  //   { id: "T-015", status: "Abgeschlossen", machine: "M-021" },
-  //   { id: "T-003", status: "Offen", machine: "T-099" },
-  //   { id: "T-011", status: "In Arbeit", machine: "P-003" },
-  //   { id: "R-100", status: "Abgeschlossen", machine: "T-011" },
-  //   { id: "R-016", status: "Offen", machine: "R-100" },
-  // ];
 
   // Generate calendar days
   const generateCalendar = () => {
@@ -471,37 +455,38 @@ const MaintenancePlanner = () => {
           </div>
 
           {/* Right Column - Actions & Inventory */}
-          <div className="flex flex-col bg-white p-4 rounded-lg shadow-sm my-4">
-            <h2 className="text-2xl font-semibold text-black mb-4 flex items-center">
-              Teile-/Lagerbestand
-            </h2>
+<div className="flex flex-col bg-white p-4 rounded-lg shadow-sm my-4">
+  <h2 className="text-2xl font-semibold text-black mb-4 flex items-center">
+    Teile-/Lagerbestand
+  </h2>
 
-            <div className="flex flex-col gap-4">
-              <div>
-                <h3 className="font-medium text-gray-700 mb-2">
-                  Mindestbestände
-                </h3>
-                <div className="w-full bg-gray-200 rounded-full h-4">
-                  <div
-                    className="bg-[#1976FB] h-4 rounded-full"
-                    style={{ width: "65%" }}
-                  ></div>
-                </div>
-              </div>
+  <div className="flex flex-col gap-4">
+    <div>
+      <h3 className="font-medium text-black mb-2">Mindestbestände</h3>
+      <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+        <motion.div
+          className="bg-[#1976FB] h-4 rounded-full"
+          initial={{ width: "0%" }}
+          animate={{ width: "65%" }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+        />
+      </div>
+    </div>
 
-              <div>
-                <h3 className="font-medium text-gray-700 mb-2">
-                  Mindestbestände
-                </h3>
-                <div className="w-full bg-gray-200 rounded-full h-4">
-                  <div
-                    className="bg-[#1976FB] h-4 rounded-full"
-                    style={{ width: "0%" }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div>
+      <h3 className="font-medium text-black mb-2">Reservierungen</h3>
+      <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+        <motion.div
+          className="bg-[#1976FB] h-4 rounded-full"
+          initial={{ width: "0%" }}
+          animate={{ width: "40%" }} // yahan aap apni required % de sakte ho
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
     </div>

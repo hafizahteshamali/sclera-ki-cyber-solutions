@@ -86,3 +86,14 @@ export const maschinenData = [
   { id: 4, name: "Maschinenliste 4", status: "Ok", statusColor: "green", oee: "88%", anomaly: "0.15" },
   { id: 5, name: "Maschinenliste 5", status: "Critical", statusColor: "red", oee: "40%", anomaly: "0.90" },
 ];
+
+
+export const events = [
+  { equipment: 'Pressmaschine 1', severity: 'Kritisch', source: 'Sensor', message: 'Temperatur zu hoch' },
+  { equipment: 'Pressmaschine 2', severity: 'Hoch', source: 'Modell', message: 'Ungewöhnliche Vibration' },
+  { equipment: 'Extruder 1', severity: 'Medium', source: 'Regel', message: 'Hoher Speicherverbrauch' },
+  { equipment: 'Spritzgießmaschine', severity: 'Kritisch', source: 'Sensor', message: 'Temperatur zu hoch' },
+  { equipment: 'Montagelinie 1', severity: 'Hoch', source: 'Modell', message: 'Ungewöhnliche Vibration' },
+  { equipment: 'Abfüllanlage', severity: 'Medium', source: 'Regel', message: 'Überstrom erkannt' },
+  { equipment: 'Förderband', severity: 'Kritisch', source: 'Sensor', message: 'Niederdruck' },
+];

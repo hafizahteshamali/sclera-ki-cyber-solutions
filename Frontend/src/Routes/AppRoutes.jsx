@@ -1,16 +1,17 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import DashboardLayout from "../Layout/DashboardLayout";
-import WerkOverview from "../pages/Dashboard/WerkOverview/WerkOverview";
-import LineMachines from "../pages/Dashboard/LineMachines/LineMachines";
-import MaintenancePlanner from "../pages/Dashboard/MaintenancePlanner/MaintenancePlanner";
-import AlarmEvents from "../pages/Dashboard/AlarmEvents/AlarmEvents";
-import Reports from "../pages/Dashboard/Reports/Reports";
-import ModelsKI from "../pages/Dashboard/ModelsKI/ModelsKI";
-import DataSources from "../pages/Dashboard/DataSources/DataSources";
-import UserRoles from "../pages/Dashboard/UserRoles/UserRoles";
-import HardwareConfiguration from "../pages/Dashboard/HardwareConfiguration/HardwareConfiguration";
-import SystemAudit from "../pages/Dashboard/SystemAudit/SystemAudit";
+import WerkOverview from "../pages/Dashboard/WerkOverview";
+import LineMachines from "../pages/Dashboard/LineMachines";
+import MaintenancePlanner from "../pages/Dashboard/MaintenancePlanner";
+import AlarmEvents from "../pages/Dashboard/AlarmEvents";
+import Reports from "../pages/Dashboard/Reports";
+import ModelsKI from "../pages/Dashboard/ModelsKI";
+import DataSources from "../pages/Dashboard/DataSources";
+import UserRoles from "../pages/Dashboard/UserRoles";
+import HardwareConfiguration from "../pages/Dashboard/HardwareConfiguration";
+import SystemAudit from "../pages/Dashboard/SystemAudit";
+
 
 // 👇 pages import karna hoga (abhi aapko ye pages create karne padhenge)
 
@@ -26,10 +27,7 @@ const AppRoutes = () => {
         <Route path="modelle-ki" element={<ModelsKI />} />
         <Route path="datenquellen" element={<DataSources />} />
         <Route path="benutzer-rollen" element={<UserRoles />} />
-        <Route
-          path="hardware-konfiguration"
-          element={<HardwareConfiguration />}
-        />
+        <Route path="hardware-konfiguration" element={<HardwareConfiguration />} />
         <Route path="system-audit" element={<SystemAudit />} />
       </Route>
     </Routes>

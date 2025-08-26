@@ -7,8 +7,51 @@ import { LuCalendarDays } from "react-icons/lu";
 import {
   maschinenData,
   WerkOverviewFilterData,
-} from "../../../assets/ConstantData";
+} from "../../assets/ConstantData";
 import { MdError } from "react-icons/md";
+import {motion} from "framer-motion";
+
+const HalfCircleProgress = ({ value, size = 160 }) => {
+  const radius = (size - 20) / 2;
+  const circumference = Math.PI * radius; // Half circle circumference
+  const strokeDasharray = circumference;
+  const strokeDashoffset = circumference - (value / 100) * circumference;
+
+  return (
+    <div className="relative" style={{ width: size, height: size / 2 + 20 }}>
+      <svg width={size} height={size / 2 + 20} className="transform -rotate-0">
+        {/* Background arc */}
+        <path
+          d={`M 10 ${size / 2} A ${radius} ${radius} 0 0 1 ${size - 10} ${
+            size / 2
+          }`}
+          fill="none"
+          stroke="#e5e7eb"
+          strokeWidth="20"
+        />
+        {/* Progress arc */}
+        <motion.path
+          d={`M 10 ${size / 2} A ${radius} ${radius} 0 0 1 ${size - 10} ${
+            size / 2
+          }`}
+          fill="none"
+          stroke="#3b82f6"
+          strokeWidth="20"
+          strokeDasharray={strokeDasharray}
+          strokeDashoffset={strokeDashoffset}
+          initial={{ strokeDashoffset: circumference }}
+          animate={{ strokeDashoffset }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        />
+      </svg>
+      {/* Center text */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center ">
+        <span className="text-4xl overflow-hidden font-[500] text-black absolute bottom-7">{value}%</span>
+        <p className="mt-2 text-gray-600 text-sm absolute bottom-2">Genauigkeit</p>
+      </div>
+    </div>
+  );
+};
 
 const WerkOverview = () => {
   return (
@@ -134,14 +177,14 @@ const WerkOverview = () => {
             </div>
 
             {/* Berichte & Trends Section */}
-            <div className="bg-white rounded-lg shadow px-5 py-3.5">
-              <div>
-              <h2 className="text-xl font-semibold text-[var(--black-color)] mb-4">
-              KI-Modell Status
-              </h2>
-                <img src="/assets/images/dashboard/flow.svg" className="object-contain mx-auto" alt="" />
-              </div>
-            </div>
+            <div className="bg-white shadow rounded-xl p-4 flex flex-col items-center justify-center">
+          <h2 className="text-lg font-semibold mb-3">KI-Modell Status</h2>
+          <HalfCircleProgress
+            value={87}
+            size={200}
+            strokeWidth={50} // default 10 ya 12 hota hai, ise bara do
+          />
+        </div>
 
             <div className="flex justify-between items-center">
               {/* Letzte Alarme Section */}
