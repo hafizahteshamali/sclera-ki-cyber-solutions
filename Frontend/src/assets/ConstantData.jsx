@@ -80,20 +80,136 @@ export const WerkOverviewFilterData = [
 ];
 
 export const maschinenData = [
-  { id: 1, name: "Maschinenliste 1", status: "Ok", statusColor: "green", oee: "96%", anomaly: "0.05" },
-  { id: 2, name: "Maschinenliste 2", status: "Warning", statusColor: "yellow", oee: "75%", anomaly: "0.30" },
-  { id: 3, name: "Maschinenliste 3", status: "Critical", statusColor: "red", oee: "60%", anomaly: "0.75" },
-  { id: 4, name: "Maschinenliste 4", status: "Ok", statusColor: "green", oee: "88%", anomaly: "0.15" },
-  { id: 5, name: "Maschinenliste 5", status: "Critical", statusColor: "red", oee: "40%", anomaly: "0.90" },
+  {
+    id: 1,
+    name: "Maschinenliste 1",
+    status: "Ok",
+    statusColor: "green",
+    oee: "96%",
+    anomaly: "0.05",
+  },
+  {
+    id: 2,
+    name: "Maschinenliste 2",
+    status: "Warning",
+    statusColor: "yellow",
+    oee: "75%",
+    anomaly: "0.30",
+  },
+  {
+    id: 3,
+    name: "Maschinenliste 3",
+    status: "Critical",
+    statusColor: "red",
+    oee: "60%",
+    anomaly: "0.75",
+  },
+  {
+    id: 4,
+    name: "Maschinenliste 4",
+    status: "Ok",
+    statusColor: "green",
+    oee: "88%",
+    anomaly: "0.15",
+  },
+  {
+    id: 5,
+    name: "Maschinenliste 5",
+    status: "Critical",
+    statusColor: "red",
+    oee: "40%",
+    anomaly: "0.90",
+  },
 ];
-
 
 export const events = [
-  { equipment: 'Pressmaschine 1', severity: 'Kritisch', source: 'Sensor', message: 'Temperatur zu hoch' },
-  { equipment: 'Pressmaschine 2', severity: 'Hoch', source: 'Modell', message: 'Ungewöhnliche Vibration' },
-  { equipment: 'Extruder 1', severity: 'Medium', source: 'Regel', message: 'Hoher Speicherverbrauch' },
-  { equipment: 'Spritzgießmaschine', severity: 'Kritisch', source: 'Sensor', message: 'Temperatur zu hoch' },
-  { equipment: 'Montagelinie 1', severity: 'Hoch', source: 'Modell', message: 'Ungewöhnliche Vibration' },
-  { equipment: 'Abfüllanlage', severity: 'Medium', source: 'Regel', message: 'Überstrom erkannt' },
-  { equipment: 'Förderband', severity: 'Kritisch', source: 'Sensor', message: 'Niederdruck' },
+  {
+    equipment: "Pressmaschine 1",
+    severity: "Kritisch",
+    source: "Sensor",
+    message: "Temperatur zu hoch",
+  },
+  {
+    equipment: "Pressmaschine 2",
+    severity: "Hoch",
+    source: "Modell",
+    message: "Ungewöhnliche Vibration",
+  },
+  {
+    equipment: "Extruder 1",
+    severity: "Medium",
+    source: "Regel",
+    message: "Hoher Speicherverbrauch",
+  },
+  {
+    equipment: "Spritzgießmaschine",
+    severity: "Kritisch",
+    source: "Sensor",
+    message: "Temperatur zu hoch",
+  },
+  {
+    equipment: "Montagelinie 1",
+    severity: "Hoch",
+    source: "Modell",
+    message: "Ungewöhnliche Vibration",
+  },
+  {
+    equipment: "Abfüllanlage",
+    severity: "Medium",
+    source: "Regel",
+    message: "Überstrom erkannt",
+  },
+  {
+    equipment: "Förderband",
+    severity: "Kritisch",
+    source: "Sensor",
+    message: "Niederdruck",
+  },
 ];
+
+export const TermsAndBerechi = [
+  {
+    num: 12,
+    text: "Werk",
+  },
+  {
+    num: 5,
+    text: "Schichtleiter",
+  },
+  {
+    num: 7,
+    text: "Datenwissenschaft",
+  },
+  {
+    num: 2,
+    text: "Admin",
+  },
+];
+
+export const SessionDevice = 
+[
+  {
+    device: "Chrome on Windows",
+    deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
+    ip: "78.23.45 12",
+    ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
+    location: "Austria",
+    locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
+  },
+  {
+    device: "Chrome on Windows",
+    deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
+    ip: "5.73.284.67",
+    ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
+    location: "Austria",
+    locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
+  },
+  {
+    device: "Chrome on Windows",
+    deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
+    ip: "78.23.45 25",
+    ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
+    location: "Austria",
+    locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
+  }
+]
