@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+"use client";
+
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaSearch, FaTrash, FaEdit } from "react-icons/fa";
-import { IoFilter, IoSearchOutline } from "react-icons/io5";
-import { LuCalendarDays } from "react-icons/lu";
-import { FaCircle } from "react-icons/fa";
+import { FaTrash, FaEdit } from "react-icons/fa";
+import { IoSearchOutline } from "react-icons/io5";
 import { SessionDevice, TermsAndBerechi } from "../../assets/ConstantData";
 
 const initialUsers = [
@@ -36,6 +36,22 @@ const initialUsers = [
     name: "Kevin Lehmann",
     email: "kevinlehmann1@...",
     role: "Admin",
+    status: "Im Dienst",
+    lastLogin: "2025-08-12",
+  },
+  {
+    id: 5,
+    name: "Lucia Schelber",
+    email: "schelber144@...",
+    role: "Werker",
+    status: "Im Dienst",
+    lastLogin: "2025-08-12",
+  },
+  {
+    id: 5,
+    name: "Lucia Schelber",
+    email: "schelber144@...",
+    role: "Werker",
     status: "Im Dienst",
     lastLogin: "2025-08-12",
   },
@@ -113,58 +129,60 @@ const UserRoles = () => {
         </select>
       </div>
 
-      <div className="h-full flex justify-between items-start ">
-        <div className="h-[100%] w-[75%]">
+      <div className="h-full flex justify-between items-start">
+        <div className="h-[100%] w-[75%] overflow-hidden">
           {/* 🧑‍🤝‍🧑 User Table */}
-    <div className="flex-1 overflow-y-auto scrollbar-hide ">
-      <motion.table
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-white w-full rounded shadow border border-gray-300 text-sm"
-      >
-        <thead className="bg-gray-100 sticky top-0 z-10">
-          <tr className="text-left">
-            <th className="p-1 flex items-center gap-2">
-              <input type="checkbox" className="w-4 h-4 cursor-pointer" />
-              Benutzer
-            </th>
-            <th>Email</th>
-            <th>Rolle</th>
-            <th>Status</th>
-            <th>Letzter Login</th>
-            <th>Aktion</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredUsers.map((user) => (
-            <tr key={user.id} className="border-t border-gray-300">
-              <td className="p-1.5 flex items-center gap-2">
-                <input type="checkbox" className="w-4 h-4 cursor-pointer" />
-                {user.name}
-              </td>
-              <td>{user.email}</td>
-              <td>{user.role}</td>
-              <td>
-                <span
-                  className={`px-2 py-1 rounded-md font-medium ${
-                    user.status === "Im Dienst"
-                      ? "bg-green-100 text-green-700"
-                      : "bg-yellow-100 text-yellow-700"
-                  }`}
-                >
-                  {user.status}
-                </span>
-              </td>
-              <td>{user.lastLogin}</td>
-              <td className="flex items-center justify-center gap-2">
-                <FaEdit className="text-blue-500 cursor-pointer" />
-                <FaTrash className="text-red-500 cursor-pointer" />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </motion.table>
-    </div>
+          {/* 🧑‍🤝‍🧑 User Table */}
+<div className="!h-[200px] flex-1 overflow-y-auto custom-scrollbar">
+  <motion.table
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="w-full rounded shadow border border-gray-300 text-sm"
+  >
+    <thead className="bg-gray-100 sticky top-0 z-10">
+      <tr className="text-left">
+        <th className="p-1 flex items-center gap-2">
+          <input type="checkbox" className="w-4 h-4 cursor-pointer" />
+          Benutzer
+        </th>
+        <th>Email</th>
+        <th>Rolle</th>
+        <th>Status</th>
+        <th>Letzter Login</th>
+        <th>Aktion</th>
+      </tr>
+    </thead>
+    <tbody>
+      {filteredUsers.map((user) => (
+        <tr key={user.id} className="border-t border-gray-300">
+          <td className="p-1.5 flex items-center gap-2">
+            <input type="checkbox" className="w-4 h-4 cursor-pointer" />
+            {user.name}
+          </td>
+          <td>{user.email}</td>
+          <td>{user.role}</td>
+          <td>
+            <span
+              className={`px-2 py-1 rounded-md font-medium ${
+                user.status === "Im Dienst"
+                  ? "bg-green-100 text-green-700"
+                  : "bg-yellow-100 text-yellow-700"
+              }`}
+            >
+              {user.status}
+            </span>
+          </td>
+          <td>{user.lastLogin}</td>
+          <td className="flex items-center justify-center gap-2">
+            <FaEdit className="text-blue-500 cursor-pointer" />
+            <FaTrash className="text-red-500 cursor-pointer" />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </motion.table>
+</div>
+
 
           {/* Rollen & Rechte */}
           <div className="mt-1 bg-white p-2 rounded-lg shadow w-[100%] flex-none">
@@ -276,11 +294,22 @@ const UserRoles = () => {
 
           <style>
             {`
-  @keyframes progressFill {
-    from { width: 0%; }
-    to { width: 60%; }
-  }
-  `}
+              @keyframes progressFill {
+                from { width: 0%; }
+                to { width: 60%; }
+              }
+              
+              /* Hide scrollbar for Chrome, Safari and Opera */
+              .custom-scrollbar::-webkit-scrollbar {
+                display: none;
+              }
+              
+              /* Hide scrollbar for IE, Edge and Firefox */
+              .custom-scrollbar {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+              }
+            `}
           </style>
         </div>
 
@@ -323,19 +352,23 @@ const UserRoles = () => {
                   className=" p-3 min-h-[100px] rounded-md shadow-sm bg-[#F5F5F5]"
                 >
                   <div className="flex items-center my-1 gap-1.5">
-                    <img src={session.deviceIcon} alt="" />
+                    <img
+                      src={session.deviceIcon || "/placeholder.svg"}
+                      alt=""
+                    />
                     <span className="text-sm font-medium">
                       {session.device}
                     </span>
                   </div>
                   <div className="flex items-center my-1 gap-1.5">
-                    <img src={session.ipIcon} alt="" />
-                    <span className="text-sm font-medium">
-                      {session.ip}
-                    </span>
+                    <img src={session.ipIcon || "/placeholder.svg"} alt="" />
+                    <span className="text-sm font-medium">{session.ip}</span>
                   </div>
                   <div className="flex items-center my-1 gap-1.5">
-                    <img src={session.locationIcon} alt="" />
+                    <img
+                      src={session.locationIcon || "/placeholder.svg"}
+                      alt=""
+                    />
                     <span className="text-sm font-medium">
                       {session.location}
                     </span>

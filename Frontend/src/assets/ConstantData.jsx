@@ -79,49 +79,51 @@ export const WerkOverviewFilterData = [
   },
 ];
 
+export const machinesTableHeadingName = [
+  "Linie", "Maschine", "Status", "OEE %", "AnomalieScore", "Letzte Wartung", "Nächste Wartung", "Aktion"
+]
 export const maschinenData = [
   {
     id: 1,
-    name: "Maschinenliste 1",
-    status: "Ok",
+    name: "Machine Alpha-1000",
+    status: "Running",
     statusColor: "green",
-    oee: "96%",
-    anomaly: "0.05",
+    oee: "85%",
+    anomaly: "0.23",
   },
   {
     id: 2,
-    name: "Maschinenliste 2",
-    status: "Warning",
-    statusColor: "yellow",
-    oee: "75%",
-    anomaly: "0.30",
+    name: "Machine Beta-2000",
+    status: "Stopped",
+    statusColor: "red",
+    oee: "0%",
+    anomaly: "0.89",
   },
   {
     id: 3,
-    name: "Maschinenliste 3",
-    status: "Critical",
-    statusColor: "red",
-    oee: "60%",
-    anomaly: "0.75",
+    name: "Machine Gamma-3000",
+    status: "Warning",
+    statusColor: "yellow",
+    oee: "72%",
+    anomaly: "0.45",
   },
   {
     id: 4,
-    name: "Maschinenliste 4",
-    status: "Ok",
+    name: "Machine Delta-4000",
+    status: "Running",
     statusColor: "green",
-    oee: "88%",
-    anomaly: "0.15",
+    oee: "91%",
+    anomaly: "0.12",
   },
   {
     id: 5,
-    name: "Maschinenliste 5",
-    status: "Critical",
-    statusColor: "red",
-    oee: "40%",
-    anomaly: "0.90",
+    name: "Machine Epsilon-5000",
+    status: "Maintenance",
+    statusColor: "orange",
+    oee: "0%",
+    anomaly: "0.67",
   },
-];
-
+]
 export const events = [
   {
     equipment: "Pressmaschine 1",
@@ -211,5 +213,127 @@ export const SessionDevice =
     ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
     location: "Austria",
     locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
+  }
+]
+
+
+export const devices = [
+  {
+    name: "GW-01",
+    location: "Hall A",
+    protocol: "MOTT",
+    fw: "v1.2.3",
+    ip: "10.0.1.5",
+    status: "OK",
+  },
+  {
+    name: "GW-02",
+    location: "Roof",
+    protocol: "Modbus",
+    fw: "v1.1.0",
+    ip: "10.0.1.6",
+    status: "Update needed",
+  },
+  {
+    name: "GW-03",
+    location: "Hall B",
+    protocol: "MQTT",
+    fw: "v1.1.0",
+    ip: "10.0.1.7",
+    status: "OK",
+  },
+  {
+    name: "GW-04",
+    location: "Hall C",
+    protocol: "OPC-UA",
+    fw: "v1.0.1",
+    ip: "10.0.1.8",
+    status: "Error",
+  },
+  {
+    name: "GW-05",
+    location: "Hall D",
+    protocol: "OPC-UA",
+    fw: "v1.0.2",
+    ip: "10.0.1.9",
+    status: "Error",
+  },
+];
+
+export const sensors = [
+  {
+    id: "SEN-001",
+    type: "Temperatursensor",
+    unit: "°C",
+    date: "15.05.2025",
+    rate: "1 Sekunde",
+    hb: "22.08.2025",
+  },
+  {
+    id: "SEN-002",
+    type: "Drucksensor",
+    unit: "bar",
+    date: "10.03.2025",
+    rate: "500 ms",
+    hb: "22.08.2025",
+  },
+  {
+    id: "SEN-003",
+    type: "Feuchtigkeitssensor",
+    unit: "%",
+    date: "01.06.2025",
+    rate: "5 Sekunden",
+    hb: "22.08.2025",
+  },
+  {
+    id: "SEN-004",
+    type: "Vibrationssensor",
+    unit: "Hz",
+    date: "20.04.2025",
+    rate: "10 Hz",
+    hb: "22.08.2025",
+  },
+  {
+    id: "SEN-005",
+    type: "Vibrationssensor",
+    unit: "Hz",
+    date: "20.04.2025",
+    rate: "10 Hz",
+    hb: "22.08.2025",
+  },
+  {
+    id: "SEN-006",
+    type: "Vibrationssensor",
+    unit: "Hz",
+    date: "20.04.2025",
+    rate: "10 Hz",
+    hb: "22.08.2025",
+  },
+];
+
+export const NetzwerkData = [
+  {
+    icon: "/assets/images/dashboard/material-symbols_lan-outline.svg",
+    text: "VLAN",
+    percent: "3",
+    sub: ""
+  },
+  {
+    icon: "/assets/images/dashboard/streamline-ultimate_usb-port-1.svg",
+    text: "Ports",
+    percent: "12",
+    sub: ""
+  },
+  {
+    icon: "/assets/images/dashboard/mingcute_time-line.svg",
+    text: "Latenz",
+    percent: "10",
+    sub: "ms"
+  },
+  {
+    icon: "/assets/images/dashboard/material-symbols_error-outline-rounded.svg",
+    text: "Paketverlust",
+    percent: "1%",
+    sub: ""
   }
 ]

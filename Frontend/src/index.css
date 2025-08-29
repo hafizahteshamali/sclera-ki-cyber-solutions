@@ -27,11 +27,12 @@ li{
     --white-color: #FFFFFF;
 }
 
-/* Hide scrollbar but allow scrolling */
+/* Hide scrollbar but keep scroll functionality */
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
+    display: none !important; /* Chrome, Safari, Edge */
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
+  }
+  
