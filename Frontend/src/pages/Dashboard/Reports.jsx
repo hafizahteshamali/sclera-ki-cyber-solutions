@@ -40,7 +40,7 @@ const Reports = () => {
   ];
 
   return (
-    <div className="p-6 w-full mx-auto !h-screen overflow-hidden">
+    <div className="p-6 w-full mx-auto !h-screen lg:overflow-hidden">
       {/* Header with search */}
       <div className="flex justify-between items-center mb-5 overflow-hidden">
         <h1 className="text-4xl font-bold text-gray-800">Berichte</h1>

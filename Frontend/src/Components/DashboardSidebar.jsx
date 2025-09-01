@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { sidebarData } from "../assets/ConstantData";
 
-const DashboardSidebar = () => {
+const DashboardSidebar = ({setIsOpen}) => {
   return (
     <div className="w-full bg-[var(--side-bar-color)] text-white flex flex-col gap-5 p-4">
       <NavLink className="mt-3 w-[90%]">
@@ -11,6 +11,7 @@ const DashboardSidebar = () => {
         {sidebarData.map((item, index) => (
           <NavLink
             key={index}
+            onClick={()=>setIsOpen(false)}
             to={item.path}
             end={item.path === "/dashboard"} // 👈 sirf dashboard route ke liye exact match
             className={({ isActive }) =>

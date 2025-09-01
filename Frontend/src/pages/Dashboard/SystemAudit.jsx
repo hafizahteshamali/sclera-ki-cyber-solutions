@@ -4,7 +4,7 @@ import { MdSettings } from "react-icons/md";
 
 const SystemAudit = () => {
   return (
-    <div className="h-screen bg-gray-100 p-6">
+    <div className="lg:h-screen bg-gray-100 p-6">
       {/* Heading */}
       <h1 className="text-4xl font-semibold text-black mb-4">
         System & Audit
@@ -49,20 +49,20 @@ const SystemAudit = () => {
 
       {/* Table Section */}
       <div className="bg-white shadow rounded-lg overflow-hidden">
-        <div className="px-10 py-5 border-b border-gray-300">
-        <h1 className="text-2xl text-black font-[500]">Backups & Wartungsfenster</h1>
+        <div className="px-5 lg:px-10 py-5 border-b border-gray-300">
+        <h1 className="text-xl lg:text-2xl text-black font-[500]">Backups & Wartungsfenster</h1>
         </div>
         <div className="text-sm">
-          <div className="flex justify-between px-10 py-5 border-b border-gray-300">
-            <span className="text-2xl">Plan</span>
+          <div className="flex justify-between px-5 lg:px-10 py-5 border-b border-gray-300">
+            <span className="text-xl lg:text-2xl">Plan</span>
             <span className="text-gray-700 font-medium text-xl">Alle</span>
           </div>
-          <div className="flex justify-between px-10 py-5 border-b border-gray-300">
-            <span className="text-2xl">Letzte Sicherung</span>
+          <div className="flex justify-between px-5 lg:px-10 py-5 border-b border-gray-300">
+            <span className="text-xl lg:text-2xl">Letzte Sicherung</span>
             <span className="text-gray-700 font-medium text-xl">2 Tage</span>
           </div>
-          <div className="flex justify-between px-10 py-5 border-b border-gray-300">
-            <span className="text-2xl">Restore-Test</span>
+          <div className="flex justify-between px-5 lg:px-10 py-5 border-b border-gray-300">
+            <span className="text-xl lg:text-2xl">Restore-Test</span>
             <span className="text-gray-700 font-medium text-xl">Heute</span>
           </div>
         </div>

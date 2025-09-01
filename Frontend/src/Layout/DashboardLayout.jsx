@@ -19,7 +19,7 @@ const DashboardLayout = () => {
             ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
           `}
         >
-          <DashboardSidebar />
+          <DashboardSidebar setIsOpen={setIsOpen} />
         </aside>
 
         {/* 🔹 Overlay for mobile/tablet */}

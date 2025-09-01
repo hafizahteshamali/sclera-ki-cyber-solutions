@@ -18,11 +18,11 @@ const dataSources = [
 
 const DataSources = () => {
   return (
-    <div className="p-6 bg-gray-50 h-screen overflow-hidden">
+    <div className="p-6 bg-gray-50 h-screen lg:overflow-hidden">
       {/* Header */}
-      <div className="flex justify-between items-center mb-2">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-2 gap-4 lg:gap-0">
         <h1 className="text-4xl font-[500]">Datenquellen</h1>
-        <div className="flex items-center rounded px-3 py-2 bg-white shadow-sm w-[25%]">
+        <div className="flex items-center rounded px-3 py-2 bg-white shadow-sm lg:w-[25%] w-full">
           <FiSearch className="text-gray-400 mr-2" />
           <input
             type="text"

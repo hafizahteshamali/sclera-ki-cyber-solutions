@@ -23,9 +23,10 @@ const MaintenancePlanner = () => {
     }));
   };
 
-  const [currentDate, setCurrentDate] = useState(new Date(2025, 7, 1)); // August 2025
+  // ✅ Default current system month instead of hardcoded August 2025
+  const [currentDate, setCurrentDate] = useState(new Date());
 
-  // Calendar logic
+  // ✅ Calendar Logic
   const generateCalendar = () => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
@@ -33,26 +34,31 @@ const MaintenancePlanner = () => {
     const lastDay = new Date(year, month + 1, 0);
     const daysInMonth = lastDay.getDate();
     const startDay = firstDay.getDay();
+
     const prevMonthLastDay = new Date(year, month, 0).getDate();
 
     const calendar = [];
     let dayCount = 1;
+    let nextMonthDay = 1;
 
     for (let i = 0; i < 6; i++) {
       const week = [];
       for (let j = 0; j < 7; j++) {
         if (i === 0 && j < startDay) {
-          week.push(prevMonthLastDay - (startDay - j - 1));
+          // Previous month days
+          week.push({
+            day: prevMonthLastDay - (startDay - j - 1),
+            currentMonth: false,
+          });
         } else if (dayCount > daysInMonth) {
-          week.push(dayCount - daysInMonth);
-          dayCount++;
+          // Next month days
+          week.push({ day: nextMonthDay++, currentMonth: false });
         } else {
-          week.push(dayCount);
-          dayCount++;
+          // Current month days
+          week.push({ day: dayCount++, currentMonth: true });
         }
       }
       calendar.push(week);
-      if (dayCount > daysInMonth && i >= 4) break;
     }
     return calendar;
   };
@@ -190,9 +196,7 @@ const MaintenancePlanner = () => {
         {/* Tickets Column */}
         <div className="w-full lg:w-1/2 flex flex-col gap-4">
           <div className="p-4 rounded-lg shadow-sm bg-white">
-            <h2 className="text-xl font-semibold text-black mb-2">
-              Tickets
-            </h2>
+            <h2 className="text-xl font-semibold text-black mb-2">Tickets</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -265,7 +269,7 @@ const MaintenancePlanner = () => {
               <div className="flex items-center">
                 <button
                   onClick={() => navigateMonth("prev")}
-                  className="p-1 text-gray-500 hover:text-gray-700"
+                  className="p-1 text-gray-500 hover:text-gray-700 "
                 >
                   <FaChevronLeft />
                 </button>
@@ -284,39 +288,34 @@ const MaintenancePlanner = () => {
 
             <div className="grid grid-cols-7 text-left text-xs font-medium text-gray-500 mb-2">
               {dayNames.map((day) => (
-                <div key={day}>{day}</div>
+                <div className="text-center" key={day}>
+                  {day}
+                </div>
               ))}
             </div>
 
             <div className="flex flex-col gap-1">
               {calendarDays.map((week, weekIndex) => (
                 <div key={weekIndex} className="grid grid-cols-7 gap-1">
-                  {week.map((day, dayIndex) => {
-                    const isCurrentMonth =
-                      weekIndex > 0 ||
-                      dayIndex >=
-                        new Date(
-                          currentDate.getFullYear(),
-                          currentDate.getMonth(),
-                          1
-                        ).getDay();
+                  {week.map((dayObj, dayIndex) => {
                     const isToday =
-                      day === new Date().getDate() &&
+                      dayObj.currentMonth &&
+                      dayObj.day === new Date().getDate() &&
                       currentDate.getMonth() === new Date().getMonth() &&
                       currentDate.getFullYear() === new Date().getFullYear();
 
                     return (
                       <div
                         key={dayIndex}
-                        className={`py-1 text-sm rounded ${
+                        className={`py-1 text-sm rounded text-center ${
                           isToday
                             ? "bg-blue-100 text-blue-600 font-medium"
-                            : isCurrentMonth
+                            : dayObj.currentMonth
                             ? "text-gray-700"
                             : "text-gray-400"
                         }`}
                       >
-                        {day}
+                        {dayObj.day}
                       </div>
                     );
                   })}

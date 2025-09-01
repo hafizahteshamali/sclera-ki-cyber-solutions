@@ -132,7 +132,7 @@ const WerkOverview = () => {
       {/* Table Container */}
       <div className="w-full bg-gray-100 rounded-lg overflow-hidden">
         {/* Table Header */}
-        <div className="grid grid-cols-4 bg-gray-200 p-2 sm:p-3 text-xs sm:text-sm font-medium text-gray-700 border-b">
+        <div className="grid grid-cols-4 bg-gray-200 p-2 sm:p-3 text-xs sm:text-sm font-medium text-gray-700 border-b border-gray-300">
           <div className="truncate pr-1">
             <span className="hidden sm:inline">Maschinenliste</span>
             <span className="inline sm:hidden">Masch.</span>
