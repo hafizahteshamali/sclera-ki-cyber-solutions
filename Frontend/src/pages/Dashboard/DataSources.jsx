@@ -18,9 +18,9 @@ const dataSources = [
 
 const DataSources = () => {
   return (
-    <div className="p-6 bg-gray-50 h-screen lg:overflow-hidden">
+    <div className="h-screen p-1 lg:overflow-hidden">
       {/* Header */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-2 gap-4 lg:gap-0">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-1 gap-4 lg:gap-0">
         <h1 className="text-4xl font-[500]">Datenquellen</h1>
         <div className="flex items-center rounded px-3 py-2 bg-white shadow-sm lg:w-[25%] w-full">
           <FiSearch className="text-gray-400 mr-2" />
@@ -33,7 +33,7 @@ const DataSources = () => {
       </div>
 
       {/* Table */}
-      <div className="bg-white shadow rounded-lg overflow-hidden mb-2">
+      <div className="bg-white shadow rounded overflow-hidden mb-1">
         {dataSources.map((item, i) => (
           <motion.div
             key={i}
@@ -64,7 +64,7 @@ const DataSources = () => {
         {/* Quelle konfigurieren */}
         <motion.div
           whileHover={{ scale: 1.03 }}
-          className="bg-white shadow rounded-lg p-4 flex-1 min-w-[250px]"
+          className="bg-white shadow rounded px-4 py-2 flex-1 min-w-[250px]"
         >
           <h2 className="font-[700] mb-2">Quelle konfigurieren</h2>
           <ul className="space-y-1">
@@ -79,7 +79,7 @@ const DataSources = () => {
         {/* Validierung */}
         <motion.div
           whileHover={{ scale: 1.03 }}
-          className="bg-white shadow rounded-lg p-4 flex-1 min-w-[250px]"
+          className="bg-white shadow rounded px-4 py-2 flex-1 min-w-[250px]"
         >
           <h2 className="font-[700] mb-2">Validierung</h2>
           <ul className="space-y-1">
@@ -92,7 +92,7 @@ const DataSources = () => {
         {/* Monitoring */}
         <motion.div
           whileHover={{ scale: 1.03 }}
-          className="bg-white shadow rounded-lg p-4 flex-1 min-w-[250px]"
+          className="bg-white shadow rounded px-4 py-2 flex-1 min-w-[250px]"
         >
           <h2 className="font-[700] mb-2">Monitoring</h2>
           <ul className=" space-y-1">
@@ -106,8 +106,8 @@ const DataSources = () => {
       {/* Bottom Section */}
       <div className="flex flex-wrap gap-4">
         {/* Teile-/Lagerbestand */}
-        <div className="bg-white shadow rounded-lg p-2 flex-1 min-w-[250px]">
-          <h2 className="font-[500] mb-4">Teile-/Lagerbestand</h2>
+        <div className="bg-white shadow rounded p-2 flex flex-col lg:w-[50%] w-full">
+          <h2 className="font-[500] mb-2">Teile-/Lagerbestand</h2>
           <div className="mb-3">
             <p className="text-sm font-medium mb-1">Mindestbestände</p>
             <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
@@ -133,8 +133,8 @@ const DataSources = () => {
         </div>
 
         {/* Aktionen */}
-        <div className="bg-white shadow rounded-lg p-2 flex-1 min-w-[500px]">
-          <h2 className="font-[500] text-3xl mb-4">Aktionen</h2>
+        <div className="bg-white shadow rounded p-2 flex-1 lg:w-[50%] w-full">
+          <h2 className="font-[500] text-3xl mb-2">Aktionen</h2>
           <div className="flex gap-4">
             <motion.button
               whileHover={{ scale: 1.05 }}

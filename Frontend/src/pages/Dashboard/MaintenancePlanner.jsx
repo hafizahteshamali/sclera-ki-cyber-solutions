@@ -88,13 +88,13 @@ const MaintenancePlanner = () => {
   const dayNames = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
 
   return (
-    <div className="bg-gray-50 lg:h-screen lg:overflow-hidden p-4 md:p-6 font-sans flex flex-col">
+    <div className="bg-gray-50 lg:h-screen lg:overflow-hidden p-2 font-sans flex flex-col">
       <h1 className="text-2xl md:text-3xl font-bold text-black mb-2">
         Wartungsplaner
       </h1>
 
       {/* Filter Buttons + Search */}
-      <div className="flex flex-col lg:flex-row lg:justify-between w-full mb-2 gap-3">
+      <div className="flex flex-col lg:flex-row lg:justify-between w-full mb-1 gap-3">
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 w-full lg:w-[75%]">
           {["Werk", "Linie", "Filter"].map((btn) => (
@@ -127,14 +127,14 @@ const MaintenancePlanner = () => {
       {/* Dashboard Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-2 overflow-hidden">
         {accordionStates.Werk && (
-          <div className="h-[120px] border border-gray-200 rounded-lg bg-white p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+          <div className="h-[110px] border border-gray-200 rounded-lg bg-white p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
             <h1 className="text-lg md:text-xl font-medium">OEE</h1>
             <h1 className="text-3xl md:text-4xl font-bold text-black">88%</h1>
           </div>
         )}
 
         {accordionStates.Linie && (
-          <div className="h-[120px] border border-gray-200 rounded-lg bg-white p-3 flex flex-col shadow-sm hover:shadow-md transition">
+          <div className="h-[110px] border border-gray-200 rounded-lg bg-white p-3 flex flex-col shadow-sm hover:shadow-md transition">
             <div className="flex items-center gap-2 mb-2">
               <h1 className="text-xl md:text-2xl font-medium">Linie L1</h1>
               <img
@@ -154,7 +154,7 @@ const MaintenancePlanner = () => {
         )}
 
         {accordionStates.Filter && (
-          <div className="h-[120px] border border-gray-200 rounded-lg bg-white p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+          <div className="h-[110px] border border-gray-200 rounded-lg bg-white p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
             <h1 className="text-lg md:text-xl font-medium">Systemstatus</h1>
             <div className="flex justify-between text-sm">
               <div className="flex flex-col gap-2">
@@ -182,7 +182,7 @@ const MaintenancePlanner = () => {
         )}
 
         {accordionStates.Filter && (
-          <div className="h-[120px] border border-gray-200 rounded-lg bg-white p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+          <div className="h-[110px] border border-gray-200 rounded-lg bg-white p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
             <h1 className="text-lg md:text-xl font-medium">aktive Alarme</h1>
             <div className="flex items-center">
               <h1 className="text-4xl md:text-5xl font-bold text-black">06</h1>
@@ -261,7 +261,7 @@ const MaintenancePlanner = () => {
         {/* Calendar + Inventory */}
         <div className="w-full lg:w-1/2 flex flex-col gap-2">
           {/* Calendar */}
-          <div className="bg-white p-5 rounded-lg shadow overflow-hidden">
+          <div className="bg-white px-5 py-2 rounded-lg shadow overflow-hidden">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-xl font-semibold text-black">
                 Wochenkalender

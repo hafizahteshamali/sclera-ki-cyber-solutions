@@ -47,6 +47,14 @@ const initialUsers = [
     status: "Im Dienst",
     lastLogin: "2025-08-12",
   },
+  {
+    id: 6,
+    name: "Lucia Schelber",
+    email: "schelber144@example.com",
+    role: "Werker",
+    status: "Im Dienst",
+    lastLogin: "2025-08-12",
+  },
 ];
 
 const rolesConfig = [
@@ -90,18 +98,19 @@ const UserRoles = () => {
 
   const deleteUser = (id) => {
     // Confirm before delete
-    const confirmed = window.confirm("Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?");
+    const confirmed = window.confirm(
+      "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?"
+    );
     if (!confirmed) return;
-  
+
     // Filter out the user with the matching id
     const updatedUsers = users.filter((user) => user.id !== id);
     setUsers(updatedUsers);
   };
-  
 
   return (
-    <div className="flex flex-col min-h-screen p-2 w-full overflow-x-hidden">
-      <h1 className="text-xl md:text-2xl font-semibold mb-2">
+    <div className="flex flex-col lg:h-screen px-2 w-full overflow-x-hidden">
+      <h1 className="text-xl md:text-2xl font-semibold mb-1">
         Benutzer & Rollen
       </h1>
 
@@ -142,12 +151,12 @@ const UserRoles = () => {
         </select>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-between items-start flex-grow overflow-hidden">
+      <div className="flex flex-col lg:flex-row justify-between items-start overflow-hidden">
         {/* Left Content */}
         <div className="w-full lg:w-[73%] flex flex-col gap-1 h-full overflow-hidden">
           {/* 🧑‍🤝‍🧑 User Table */}
-          <div className="bg-white rounded-b-lg shadow border border-gray-300 flex-grow overflow-hidden">
-            <div className="overflow-x-auto custom-scrollbar h-full">
+          <div className="bg-white rounded-b shadow border border-gray-300 flex-grow overflow-hidden">
+            <div className="overflow-x-auto scrollbar-hide lg:h-[180px]">
               <motion.table
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -155,14 +164,14 @@ const UserRoles = () => {
               >
                 <thead className="bg-gray-100">
                   <tr className="text-left">
-                    <th className="p-1 sm:p-2 w-[60px] sm:w-[100px]">
+                    <th className="p-1 sm:p-1 w-[60px] sm:w-[100px]">
                       Benutzer
                     </th>
-                    <th className="p-1 sm:p-2 w-[80px] sm:w-[120px]">Email</th>
-                    <th className="p-1 sm:p-2 w-[50px] sm:w-[80px]">Rolle</th>
-                    <th className="p-1 sm:p-2 w-[60px] sm:w-[90px]">Status</th>
-                    <th className="p-1 sm:p-2 w-[55px] sm:w-[80px]">Login</th>
-                    <th className="p-1 sm:p-2 w-[45px] sm:w-[70px] text-center">
+                    <th className="p-1 sm:p-1 w-[80px] sm:w-[120px]">Email</th>
+                    <th className="p-1 sm:p-1 w-[50px] sm:w-[80px]">Rolle</th>
+                    <th className="p-1 sm:p-1 w-[60px] sm:w-[90px]">Status</th>
+                    <th className="p-1 sm:p-1 w-[55px] sm:w-[80px]">Login</th>
+                    <th className="p-1 sm:p-1 w-[45px] sm:w-[70px] text-center">
                       Aktion
                     </th>
                   </tr>
@@ -173,16 +182,16 @@ const UserRoles = () => {
                       key={user.id}
                       className="border-t border-gray-300 hover:bg-gray-50"
                     >
-                      <td className="p-1 sm:p-2 truncate">
+                      <td className="p-1 sm:p-1 truncate">
                         {truncateResponsive(user.name, 4, 6, 10)}
                       </td>
-                      <td className="p-1 sm:p-2 truncate">
+                      <td className="p-1 sm:p-1 truncate">
                         {truncateResponsive(user.email, 6, 10, 14)}
                       </td>
-                      <td className="p-1 sm:p-2 truncate">
+                      <td className="p-1 sm:p-1 truncate">
                         {truncateResponsive(user.role, 3, 6, 8)}
                       </td>
-                      <td className="p-1 sm:p-2">
+                      <td className="p-1 sm:p-1">
                         <span
                           className={`px-1.5 py-0.5 rounded-md text-[9px] sm:text-[10px] md:text-xs font-medium truncate ${
                             user.status === "Im Dienst"
@@ -193,13 +202,16 @@ const UserRoles = () => {
                           {truncateResponsive(user.status, 4, 6, 8)}
                         </span>
                       </td>
-                      <td className="p-1 sm:p-2 truncate">
+                      <td className="p-1 sm:p-1 truncate">
                         {truncateResponsive(user.lastLogin, 4, 6, 8)}
                       </td>
-                      <td className="p-1 sm:p-2 text-center">
+                      <td className="p-1 sm:p-1 text-center">
                         <div className="flex items-center justify-center gap-1">
                           <FaEdit className="text-blue-500 cursor-pointer text-[10px] sm:text-xs md:text-sm" />
-                          <FaTrash onClick={()=>deleteUser(user.id)} className="text-red-500 cursor-pointer text-[10px] sm:text-xs md:text-sm" />
+                          <FaTrash
+                            onClick={() => deleteUser(user.id)}
+                            className="text-red-500 cursor-pointer text-[10px] sm:text-xs md:text-sm"
+                          />
                         </div>
                       </td>
                     </tr>
@@ -210,11 +222,11 @@ const UserRoles = () => {
           </div>
 
           {/* Rollen & Rechte */}
-          <div className="bg-white pt-2 px-2 rounded-lg shadow w-full">
+          <div className="bg-white pt-2 px-2 rounded shadow w-full">
             <h2 className="text-sm sm:text-base font-semibold mb-2">
               Rollen & Rechte
             </h2>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto scrollbar-hide lg:h-[160px]">
               <table className="w-full border-collapse text-[10px] sm:text-[9px] md:text-[10px] lg:text-[14px] min-w-[360px]">
                 <thead>
                   <tr>
@@ -275,7 +287,7 @@ const UserRoles = () => {
           </div>
 
           {/* Sicherheit */}
-          <div className="bg-white p-2 rounded-lg shadow w-full">
+          <div className="bg-white p-2 rounded shadow w-full">
             <h2 className="text-lg font-semibold mb-1">Sicherheit</h2>
             <div className="space-y-0.5 text-xs sm:text-sm">
               <div className="flex justify-between items-center border-b border-gray-300 pb-0.5">

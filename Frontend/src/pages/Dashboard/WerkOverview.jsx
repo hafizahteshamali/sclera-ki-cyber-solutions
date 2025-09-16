@@ -58,14 +58,14 @@ const HalfCircleProgress = ({ value, size = 160 }) => {
 const WerkOverview = () => {
   return (
     <div className="h-screen bg-gray-100 lg:overflow-hidden">
-      <div className="mx-auto lg:p-6 p-2">
+      <div className="mx-auto lg:py-2 p-2">
         {/* Header */}
-        <h1 className="text-5xl lg:text-4xl font-[500] text-[var(--black-color)] overflow-hidden my-4">
+        <h1 className="text-5xl lg:text-4xl font-[500] text-[var(--black-color)] overflow-hidden mb-2">
           Werk-Overview
         </h1>
 
         {/* Zu Tickets Section */}
-        <div className="flex justify-start items-center gap-3 mb-4">
+        <div className="flex justify-start items-center gap-3 mb-2">
           <div className="bg-blue-500 px-4 py-1 flex justify-center rounded items-center">
             <h3 className="text-lg font-[400] text-white">Zu Tickets</h3>
           </div>
@@ -76,7 +76,7 @@ const WerkOverview = () => {
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Left Column */}
-          <div className="flex flex-col gap-4 flex-grow lg:w-2/3">
+          <div className="flex flex-col gap-2 flex-grow lg:w-2/3">
             <div className="bg-white rounded-lg shadow py-5 px-6 flex flex-col gap-5">
               {/* Filter Section */}
               <div className="flex justify-between items-center gap-4 lg:gap-0">

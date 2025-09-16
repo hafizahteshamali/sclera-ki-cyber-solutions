@@ -40,9 +40,9 @@ const Reports = () => {
   ];
 
   return (
-    <div className="p-6 w-full mx-auto !h-screen lg:overflow-hidden">
+    <div className="p-2 w-full mx-auto !h-screen lg:overflow-hidden">
       {/* Header with search */}
-      <div className="flex justify-between items-center mb-5 overflow-hidden">
+      <div className="flex justify-between items-center mb-2 overflow-hidden">
         <h1 className="text-4xl font-bold text-gray-800">Berichte</h1>
         <div className="relative w-[35%]">
           <input
@@ -55,11 +55,11 @@ const Reports = () => {
       </div>
 
       {/* Vordefiniert Section */}
-      <div className="bg-white p-5 rounded-xl">
-        <h2 className="text-3xl font-[400] text-black mb-4">Vordefiniert</h2>
+      <div className="bg-white px-5 py-5 rounded-xl">
+        <h2 className="text-3xl font-[400] text-black mb-2">Vordefiniert</h2>
         <div className="flex flex-wrap justify-between -mx-2">
           {predefinedReports.map((report, index) => (
-            <div key={index} className="w-full md:w-[24%] px-2 mb-4">
+            <div key={index} className="w-full md:w-[24%] px-2 mb-2">
               <div className="border border-gray-200 rounded-lg p-4 h-full bg-[#F9F9FB]">
                 <div className="flex items-center mb-3">
                   <h3 className="font-medium text-black text-xl">
@@ -87,8 +87,8 @@ const Reports = () => {
         </div>
 
         {/* Benutzerdefinierter Berichtsgenerator Section */}
-        <div className="my-4">
-          <h2 className="text-3xl font-[400] text-black mb-4">
+        <div className="mb-4">
+          <h2 className="text-3xl font-[400] text-black mb-2">
             Benutzerdefinierter Berichtsgenerator
           </h2>
           <div className="flex w-full flex-wrap justify-start items-center min-h-[200px] bg-[#F9F9FB] p-2 border border-gray-300 rounded-lg">

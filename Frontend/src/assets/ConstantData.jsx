@@ -79,6 +79,25 @@ export const WerkOverviewFilterData = [
   },
 ];
 
+export const DashboardNavigation = [
+  {
+    text: "Konfiguration",
+    url: "/dashboard"
+  },
+  {
+    text: "Neue Entität",
+    url: "/dashboard/linien-maschinen"
+  },
+  {
+    text: "Zu Tickets",
+    url: "/dashboard/linien-maschinen"
+  },
+  {
+    text: "Zu Trends",
+    url: "/dashboard/linien-maschinen"
+  }
+]
+
 export const machinesTableHeadingName = [
   "Linie", "Maschine", "Status", "OEE %", "AnomalieScore", "Letzte Wartung", "Nächste Wartung", "Aktion"
 ]

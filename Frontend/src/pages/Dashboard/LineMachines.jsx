@@ -163,12 +163,12 @@ const LineMachines = () => {
   }
 
   return (
-    <div className="font-sans bg-slate-50 min-h-screen p-2 sm:p-3 md:p-4 lg:p-5 flex flex-col">
+    <div className="font-sans bg-slate-50 h-screen p-2 flex flex-col mt-1.5">
       {/* Header */}
       <div className="flex-shrink-0">
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-3">Linien & Maschinen</h1>
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2">Linien & Maschinen</h1>
 
-        <div className="flex flex-col sm:flex-row justify-between w-full p-1 mb-2 sm:mb-3 gap-2 sm:gap-0">
+        <div className="flex flex-col sm:flex-row justify-between w-full p-1 mb-2 gap-2 sm:gap-0">
           <div className="flex flex-row gap-1 sm:gap-2 w-full sm:w-[72%]">
             <button
               onClick={() => toggleAccordion("Werk")}
@@ -219,7 +219,7 @@ const LineMachines = () => {
       </div>
 
       {/* Main Dashboard with Accordions */}
-      <div className="flex flex-col flex-1 overflow-hidden">
+      <div className="flex flex-col overflow-hidden">
         {/* Content with Flex Layout */}
         <div className="flex flex-col gap-2 sm:gap-3 mb-2 sm:mb-3 flex-1 overflow-hidden">
           <div className="flex flex-col sm:flex-row justify-start items-stretch w-full flex-shrink-0 gap-2 sm:gap-3 md:gap-5">

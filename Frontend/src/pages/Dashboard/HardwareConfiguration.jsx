@@ -16,14 +16,14 @@ const HardwareConfiguration = () => {
   const breadcrumbs = ["Werk", "Linie 1", "Maschine A"];
 
   return (
-    <div className="flex lg:h-screen w-full bg-gray-100 p-3 sm:p-5">
+    <div className="flex lg:h-screen w-full bg-gray-100 px-3">
       <div className="w-full flex flex-col items-start justify-start">
         {/* Heading */}
-        <h1 className="text-2xl sm:text-3xl font-bold mb-2">Hardware-Konfiguration</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold mb-1">Hardware-Konfiguration</h1>
 
         <div className="w-full h-full flex flex-col lg:flex-row justify-start gap-4">
           {/* Left Content */}
-          <div className="w-full lg:w-[75%] flex flex-col gap-4 overflow-hidden">
+          <div className="w-full lg:w-[75%] flex flex-col gap-2 overflow-hidden">
             {/* Breadcrumbs */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -54,7 +54,7 @@ const HardwareConfiguration = () => {
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
-  className="bg-white rounded shadow p-2 h-[180px] overflow-y-auto scrollbar-hide"
+  className="bg-white rounded shadow p-2 h-[185px] overflow-y-auto scrollbar-hide"
 >
   <div className="overflow-x-auto">
     <table className="w-full border-collapse text-[8px] sm:text-[9px] md:text-[10px] lg:text-[14px] min-w-[360px]">
@@ -112,7 +112,7 @@ const HardwareConfiguration = () => {
   transition={{ duration: 0.6, delay: 0.2 }}
   className="bg-white rounded shadow p-2 h-[200px] overflow-y-auto scrollbar-hide"
 >
-  <h2 className="text-base sm:text-lg font-semibold py-2 border-b border-gray-300">
+  <h2 className="text-base sm:text-lg font-semibold pb-2 border-b border-gray-300">
     Sensoren
   </h2>
 
@@ -155,7 +155,9 @@ const HardwareConfiguration = () => {
   transition={{ duration: 0.6, delay: 0.4 }}
   className="bg-white rounded shadow p-2 h-[200px] overflow-y-auto scrollbar-hide"
 >
-  <h2 className="text-base sm:text-lg font-semibold mb-2">Sensoren</h2>
+<h2 className="text-base sm:text-lg font-semibold pb-2 border-b border-gray-300">
+    Sensoren
+  </h2>
   <div className="overflow-x-auto">
     <table className="w-full border-collapse text-[8px] sm:text-[9px] md:text-[10px] lg:text-[14px] min-w-[400px]">
       <thead>
