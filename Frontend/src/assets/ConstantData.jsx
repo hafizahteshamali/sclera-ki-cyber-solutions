@@ -82,7 +82,7 @@ export const WerkOverviewFilterData = [
 export const DashboardNavigation = [
   {
     text: "Konfiguration",
-    url: "/dashboard"
+    url: "/dashboard/datenkonfiguration"
   },
   {
     text: "Neue Entität",
@@ -354,5 +354,28 @@ export const NetzwerkData = [
     text: "Paketverlust",
     percent: "1%",
     sub: ""
+  }
+]
+
+export const DataConfigStatusData = [
+  {
+    bgImg: "/assets/images/dashboard/d_c_card_bg1.png",
+    text: "OEE",
+    value: "88%"
+  },
+  {
+    bgImg: "/assets/images/dashboard/d_c_card_bg2.png",
+    text: "Verfügbarkeit",
+    value: "25%"
+  },
+  {
+    bgImg: "/assets/images/dashboard/d_c_card_bg3.png",
+    text: "aktive Alarme",
+    value: "4"
+  },
+  {
+    bgImg: "/assets/images/dashboard/d_c_card_bg4.png",
+    text: "Schicht",
+    value: "94.1%"
   }
 ]

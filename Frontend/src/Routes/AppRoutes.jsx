@@ -11,6 +11,7 @@ import DataSources from "../pages/Dashboard/DataSources";
 import UserRoles from "../pages/Dashboard/UserRoles";
 import HardwareConfiguration from "../pages/Dashboard/HardwareConfiguration";
 import SystemAudit from "../pages/Dashboard/SystemAudit";
+import DataConfiguration from "../pages/Dashboard/DataConfiguration";
 
 
 // 👇 pages import karna hoga (abhi aapko ye pages create karne padhenge)
@@ -29,6 +30,7 @@ const AppRoutes = () => {
         <Route path="benutzer-rollen" element={<UserRoles />} />
         <Route path="hardware-konfiguration" element={<HardwareConfiguration />} />
         <Route path="system-audit" element={<SystemAudit />} />
+        <Route path="datenkonfiguration" element={<DataConfiguration />} />
       </Route>
     </Routes>
   );
