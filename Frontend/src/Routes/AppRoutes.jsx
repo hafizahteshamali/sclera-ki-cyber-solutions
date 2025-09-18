@@ -12,6 +12,7 @@ import UserRoles from "../pages/Dashboard/UserRoles";
 import HardwareConfiguration from "../pages/Dashboard/HardwareConfiguration";
 import SystemAudit from "../pages/Dashboard/SystemAudit";
 import DataConfiguration from "../pages/Dashboard/DataConfiguration";
+import MQTT from "../pages/Dashboard/MQTT";
 
 
 // 👇 pages import karna hoga (abhi aapko ye pages create karne padhenge)
@@ -31,6 +32,7 @@ const AppRoutes = () => {
         <Route path="hardware-konfiguration" element={<HardwareConfiguration />} />
         <Route path="system-audit" element={<SystemAudit />} />
         <Route path="datenkonfiguration" element={<DataConfiguration />} />
+        <Route path="mqtt" element={<MQTT />} />
       </Route>
     </Routes>
   );

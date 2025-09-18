@@ -207,33 +207,33 @@ export const TermsAndBerechi = [
   },
 ];
 
-export const SessionDevice = 
-[
-  {
-    device: "Chrome on Windows",
-    deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
-    ip: "78.23.45 12",
-    ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
-    location: "Austria",
-    locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
-  },
-  {
-    device: "Chrome on Windows",
-    deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
-    ip: "5.73.284.67",
-    ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
-    location: "Austria",
-    locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
-  },
-  {
-    device: "Chrome on Windows",
-    deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
-    ip: "78.23.45 25",
-    ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
-    location: "Austria",
-    locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
-  }
-]
+export const SessionDevice =
+  [
+    {
+      device: "Chrome on Windows",
+      deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
+      ip: "78.23.45 12",
+      ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
+      location: "Austria",
+      locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
+    },
+    {
+      device: "Chrome on Windows",
+      deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
+      ip: "5.73.284.67",
+      ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
+      location: "Austria",
+      locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
+    },
+    {
+      device: "Chrome on Windows",
+      deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
+      ip: "78.23.45 25",
+      ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
+      location: "Austria",
+      locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
+    }
+  ]
 
 
 export const devices = [
@@ -379,3 +379,24 @@ export const DataConfigStatusData = [
     value: "94.1%"
   }
 ]
+
+export const steps = [
+  "MQTT/KI-Konfiguration",
+  "Sicherheit",
+  "Payload & Schema",
+  "Routing & DB",
+  "Monitoring",
+];
+
+export const tableData = [
+  { name: "OPC UA", status: "Verbunden", heartbeat: "Vor 5 Sek" },
+  { name: "MQTT", status: "Getrennt", heartbeat: "Vor 2 Minuten" },
+  { name: "REST API", status: "Verbunden", heartbeat: "Vor 12 Sek" },
+  { name: "CSV Import", status: "Nicht konfiguriert", heartbeat: "--" },
+  { name: "CSV Import", status: "Nicht konfiguriert", heartbeat: "--" },
+  { name: "CSV Import", status: "Nicht konfiguriert", heartbeat: "--" },
+  { name: "CSV Import", status: "Nicht konfiguriert", heartbeat: "--" },
+  { name: "CSV Import", status: "Nicht konfiguriert", heartbeat: "--" },
+  { name: "CSV Import", status: "Nicht konfiguriert", heartbeat: "--" },
+  { name: "CSV Import", status: "Nicht konfiguriert", heartbeat: "--" },
+];
