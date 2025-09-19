@@ -6,15 +6,15 @@ const MQTT = () => {
     const [activeTab, setActiveTab] = useState(1);
 
     return (
-        <div className="bg-[#f5f7fa] min-h-screen px-2">
+        <div className="bg-[#f5f7fa] lg:h-screen px-2">
             {/* Stepper Tabs */}
-            <div className="flex flex-col lg:flex-wrap lg:flex-row items-start lg:items-center justify-between lg:justify-start my-5 lg:my-0">
+            <div className="flex flex-col lg:flex-wrap lg:flex-row items-start lg:items-center justify-between lg:justify-start my-5 lg:mb-2">
                 {steps.map((step, index) => (
                     <div key={index} className="flex items-center mb-1">
                         {/* Step Circle */}
                         <button
                             onClick={() => setActiveTab(index + 1)}
-                            className={`flex items-center justify-center w-8 h-8 rounded-full border-2 text-[12px] font-bold
+                            className={`flex items-center justify-center w-8 h-8 rounded-full border-2 text-[14px] font-bold
                 ${activeTab === index + 1
                                     ? "bg-sky-500 text-white border-sky-500"
                                     : "border-sky-200 text-sky-200"
@@ -26,7 +26,7 @@ const MQTT = () => {
                         {/* Step Label */}
                         <span
                             onClick={() => setActiveTab(index + 1)}
-                            className={`ml-2 text-[12px] font-medium cursor-pointer ${activeTab === index + 1 ? "text-sky-500" : "text-sky-200"
+                            className={`ml-2 text-[14px] font-medium cursor-pointer ${activeTab === index + 1 ? "text-sky-500" : "text-sky-200"
                                 }`}
                         >
                             {step}
@@ -44,10 +44,10 @@ const MQTT = () => {
             {activeTab === 1 && (
                 <div className="flex flex-col lg:flex-row gap-2">
                     {/* Left Side - Form */}
-                    <div className="flex-1 flex flex-col gap-2">
+                    <div className="flex-1 flex flex-col gap-3">
                         {/* Verbindungseinstellungen */}
                         <div className="bg-white rounded shadow border border-gray-300">
-                            <h2 className="text-[14px] font-semibold text-black bg-[#DAF1FF] px-2 py-1">
+                            <h2 className="text-[14px] font-semibold text-black bg-[#DAF1FF] p-2">
                                 Verbindungseinstellungen
                             </h2>
                             <div className="flex flex-col px-2">
@@ -90,7 +90,7 @@ const MQTT = () => {
 
                         {/* Subscribe Einstellungen */}
                         <div className="bg-white rounded shadow border border-gray-300">
-                            <h2 className="text-[14px] font-semibold text-black bg-[#DAF1FF] px-2 py-1">
+                            <h2 className="text-[14px] font-semibold text-black bg-[#DAF1FF] p-2">
                                 Subscribe Einstellungen
                             </h2>
                             <div className="flex flex-col p-2">
@@ -117,7 +117,7 @@ const MQTT = () => {
 
                         {/* Leistung */}
                         <div className="bg-white rounded shadow border border-gray-300">
-                            <h2 className="text-[14px] font-semibold text-black px-2 py-1 bg-[#DAF1FF]">Leistung</h2>
+                            <h2 className="text-[14px] font-semibold text-black p-2 bg-[#DAF1FF]">Leistung</h2>
                             <div className="flex flex-col px-2 py-0.5">
                                 <div className="flex justify-between items-center border-b py-0.5 border-gray-300">
                                     <label className="text-sm">Max. Nachrichten während des Flugs</label>
