@@ -4,6 +4,7 @@ import { MdOutlineModelTraining } from "react-icons/md";
 import { BsGraphUp } from "react-icons/bs";
 import { DataConfigStatusData } from "../../assets/ConstantData";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
+import { useNavigate } from "react-router-dom";
 
 const vibrationData = [
   { value: 2 },
@@ -39,6 +40,7 @@ const ProgressBar = ({ value, color }) => (
 
 const DataConfiguration = () => {
   const [activeTab, setActiveTab] = useState("MQTT");
+  const navigate = useNavigate();
 
   const tabs = ["MQTT", "OPC UA", "REST API", "CSV Import"];
 
@@ -73,7 +75,7 @@ const DataConfiguration = () => {
                 </h3>
 
                 <div className="w-full lg:w-[50%] flex flex-col lg:flex-row justify-center items-center lg:gap-5 gap-2 mt-5 lg:mt-0">
-                  <button className="flex justify-center items-center w-full lg:w-[48%] bg-[#4DB5D81A] py-1.5 rounded gap-1">
+                  <button className="flex justify-center cursor-pointer items-center w-full lg:w-[48%] bg-[#4DB5D81A] py-1.5 rounded gap-1">
                     <img
                       src="/assets/images/dashboard/tabler_details.svg"
                       alt=""
@@ -82,7 +84,7 @@ const DataConfiguration = () => {
                     Details anzeigen
                   </button>
 
-                  <button className="flex justify-center items-center w-full lg:w-[48%] bg-[#4DB5D81A] py-1.5 rounded gap-1">
+                  <button onClick={()=>navigate("/dashboard/mqtt")} className="flex justify-center cursor-pointer items-center w-full lg:w-[48%] bg-[#4DB5D81A] py-1.5 rounded gap-1">
                     <img
                       src="/assets/images/dashboard/basil_add-solid.svg"
                       alt=""

@@ -386,6 +386,7 @@ export const steps = [
   "Payload & Schema",
   "Routing & DB",
   "Monitoring",
+  "KI-Modell",
 ];
 
 export const tableData = [
@@ -400,3 +401,26 @@ export const tableData = [
   { name: "CSV Import", status: "Nicht konfiguriert", heartbeat: "--" },
   { name: "CSV Import", status: "Nicht konfiguriert", heartbeat: "--" },
 ];
+
+export const MonitoringData = [
+  {
+    text: "Latenz",
+    numb: "88%",
+    bg: "/assets/images/dashboard/d_c_card_bg1.png"
+  },
+  {
+    text: "Batch-Größe",
+    numb: "20%",
+    bg: "/assets/images/dashboard/d_c_card_bg2.png"
+  },
+  {
+    text: "Nachrichtenrate",
+    numb: "90%",
+    bg: "/assets/images/dashboard/d_c_card_bg3.png"
+  },
+  {
+    text: "Reconnects",
+    numb: "31",
+    bg: "/assets/images/dashboard/d_c_card_bg4.png"
+  },
+]
