@@ -1,64 +1,116 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { MdOutlineModelTraining } from "react-icons/md";
-import { BsGraphUp } from "react-icons/bs";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 import { DataConfigStatusData } from "../../assets/ConstantData";
-import { LineChart, Line, ResponsiveContainer } from "recharts";
-import { useNavigate } from "react-router-dom";
-
-const vibrationData = [
-  { value: 2 },
-  { value: 1.5 },
-  { value: 2.3 },
-  { value: 1.8 },
-  { value: 2.1 },
-  { value: 1.7 },
-  { value: 2.2 },
-  { value: 1.9 },
-];
-
-const currentData = [
-  { value: 12 },
-  { value: 11.8 },
-  { value: 12.1 },
-  { value: 11.9 },
-  { value: 12.0 },
-  { value: 11.7 },
-  { value: 12.1 },
-];
-
-const ProgressBar = ({ value, color }) => (
-  <div className="w-full bg-gray-200 rounded-full h-3">
-    <motion.div
-      initial={{ width: 0 }}
-      animate={{ width: `${value}%` }}
-      transition={{ duration: 1.5 }}
-      className={`h-3 rounded-full ${color}`}
-    />
-  </div>
-);
+import { CiWarning } from "react-icons/ci";
+import { FaSquarePlus } from "react-icons/fa6";
 
 const DataConfiguration = () => {
-  const [activeTab, setActiveTab] = useState("MQTT");
-  const navigate = useNavigate();
+  const chartData = [
+    { x: 0, Datenqualität: 24 },
+    { x: 10, Datenqualität: 28 },
+    { x: 20, Datenqualität: 26 },
+    { x: 30, Datenqualität: 32 },
+    { x: 40, Datenqualität: 30 },
+    { x: 50, Datenqualität: 28 },
+    { x: 60, Datenqualität: 24 },
+    { x: 70, Datenqualität: 26 },
+    { x: 80, Datenqualität: 30 },
+    { x: 90, Datenqualität: 32 },
+    { x: 100, Datenqualität: 34 },
+  ];
 
-  const tabs = ["MQTT", "OPC UA", "REST API", "CSV Import"];
+  const tableData = [
+    {
+      quelle: "MQTT_Extruder01",
+      typ: "MQTT",
+      datenqualität: "86%",
+      relevanz: "Hoch",
+      zuverlässigkeit: "94%",
+      zuletzt: "vor 2 Minuten",
+    },
+    {
+      quelle: "OPC_Silo01",
+      typ: "OPC UA",
+      datenqualität: "72%",
+      relevanz: "Mittel",
+      zuverlässigkeit: "81%",
+      zuletzt: "vor 10 Minuten",
+    },
+    {
+      quelle: "MQTT_Pump02",
+      typ: "MQTT",
+      datenqualität: "90%",
+      relevanz: "Hoch",
+      zuverlässigkeit: "97%",
+      zuletzt: "vor 3 Minuten",
+    },
+    {
+      quelle: "REST_EnergyAPI",
+      typ: "REST API",
+      datenqualität: "78%",
+      relevanz: "Niedrig",
+      zuverlässigkeit: "89%",
+      zuletzt: "vor 7 Minuten",
+    },
+    {
+      quelle: "CSV_Import_QC",
+      typ: "CSV Import",
+      datenqualität: "65%",
+      relevanz: "Mittel",
+      zuverlässigkeit: "75%",
+      zuletzt: "vor 15 Minuten",
+    },
+  ];
 
   return (
-    <div className="lg:h-screen lg:overflow-hidden px-5">
-      {/* Header */}
-      <h1 className="text-3xl font-bold">Datenkonfiguration</h1>
+    <div className="min-h-screen bg-gray-100 py-4 px-2 lg:overflow-hidden lg:h-screen">
+      {/* Main Container */}
+      <div className="flex flex-col lg:flex-row gap-4 h-full">
+        {/* Left Section - Main Content */}
+        <div className="flex-1 flex flex-col overflow-hidden">
+          {/* Header */}
+          <div className="mb-4">
+            <h1 className="text-4xl font-bold text-black mb-4">
+              Datenkonfiguration
+            </h1>
 
-      <div className="flex flex-col gap-6">
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row gap-3 justify-between">
-          <div className="w-full lg:w-[75%]">
-            {/* Left - Top Cards */}
-            <div className="flex flex-wrap justify-between p-1.5 gap-2">
+            {/* Subtitle Section */}
+            <div className="rounded-lg mb-4 bg-[#F8FBFF] p-2">
+              <h2 className="text-2xl font-bold text-black mb-2">
+                Datenquellen – KI-Bewertung & Relevanzanalyse
+              </h2>
+              <p className="text-sm text-gray-600 mb-4">
+                Analyse und Bewertung aller verbundenen Datenquellen anhand von
+                Datenqualität, Stabilität und Modellrelevanz.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col lg:flex-row gap-3">
+                <button className="flex items-center gap-2 px-3 h-[45px] border-2 border-blue-400 text-blue-400 rounded-lg hover:bg-blue-50 transition text-sm">
+                  <CiWarning className="text-xl" />
+                  Analyse aktualisieren
+                </button>
+                <button className="flex items-center gap-2 px-3 h-[45px] bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">
+                  <FaSquarePlus className="text-xl" />
+                  Datenquelle hinzufügen
+                </button>
+              </div>
+            </div>
+
+            {/* Stat Cards */}
+            <div className="flex flex-wrap justify-between gap-2">
               {DataConfigStatusData.map((item, index) => (
                 <div
                   key={index}
-                  className="text-white rounded py-6 px-5 shadow bg-cover bg-center bg-no-repeat w-full sm:w-[45%] lg:w-[48%]"
+                  className="text-white rounded-lg py-6 px-5 shadow bg-cover bg-center bg-no-repeat w-full sm:w-[45%] lg:w-[24%]"
                   style={{ backgroundImage: `url(${item.bgImg})` }}
                 >
                   <h3 className="text-lg font-semibold">{item.text}</h3>
@@ -66,316 +118,211 @@ const DataConfiguration = () => {
                 </div>
               ))}
             </div>
-
-            {/* Left - Data Sources */}
-            <div className="bg-white rounded shadow lg:px-4 px-2 py-2.5 flex-1 mt-1">
-              <div className="w-full flex flex-col lg:flex-row justify-between items-center">
-                <h3 className="font-[500] text-3xl flex items-center">
-                  Datenquelle
-                </h3>
-
-                <div className="w-full lg:w-[50%] flex flex-col lg:flex-row justify-center items-center lg:gap-5 gap-2 mt-5 lg:mt-0">
-                  <button className="flex justify-center cursor-pointer items-center w-full lg:w-[48%] bg-[#4DB5D81A] py-1.5 rounded gap-1">
-                    <img
-                      src="/assets/images/dashboard/tabler_details.svg"
-                      alt=""
-                      className="h-5 w-5"
-                    />
-                    Details anzeigen
-                  </button>
-
-                  <button onClick={()=>navigate("/dashboard/mqtt")} className="flex justify-center cursor-pointer items-center w-full lg:w-[48%] bg-[#4DB5D81A] py-1.5 rounded gap-1">
-                    <img
-                      src="/assets/images/dashboard/basil_add-solid.svg"
-                      alt=""
-                      className="h-5 w-5"
-                    />
-                    Neu hinzufügen
-                  </button>
-                </div>
-              </div>
-
-              <div className="flex flex-col lg:flex-row justify-between items-center mt-5 lg:mt-2">
-                <div className="w-full lg:w-[60%]">
-                  {/* Tabs */}
-                  <div className="flex flex-col lg:flex-row gap-3 justify-between lg:justify-start w-full">
-                    {tabs.map((tab) => (
-                      <button
-                        key={tab}
-                        className={`lg:px-4 px-0.5 py-2 lg:py-1 rounded text-sm ${
-                          activeTab === tab
-                            ? "bg-[#EDF8FB] text-[#4DB5D8] font-semibold"
-                            : "bg-gray-100 text-gray-600 border-2 border-[#0000001A]"
-                        }`}
-                        onClick={() => setActiveTab(tab)}
-                      >
-                        {tab}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Tab Content */}
-                  <div className="mt-2">
-                    {activeTab === "MQTT" && (
-                      <table className="w-full text-[10px] lg:text-[12px]">
-                        <thead>
-                          <tr className="text-left text-[#0F8AB3] bg-[#DAF1FF]">
-                            <th className="p-2 font-[400]">Quellenname</th>
-                            <th className="p-2 font-[400]">
-                              Verbindungsstatus
-                            </th>
-                            <th className="p-2 font-[400]">
-                              Letzter Heartbeat
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody className="bg-[#F6FBFE]">
-                          <tr className="border-b border-gray-300">
-                            <td className="p-2 text-[#4DB5D8]">OPC UA</td>
-                            <td className="p-2 text-[#4DB5D8] flex justify-start items-center gap-1.5">
-                              <div className="h-[10px] w-[10px] bg-green-600 rounded-full"></div>
-                              Verbunden
-                            </td>
-                            <td className="p-2 text-[#4DB5D8]">Vor 5 Sek</td>
-                          </tr>
-                          <tr className="border-b border-gray-300">
-                            <td className="p-2 text-[#4DB5D8]">MQTT</td>
-                            <td className="p-2 text-[#4DB5D8] flex justify-start items-center gap-1.5">
-                              <div className="h-[10px] w-[10px] bg-red-500 rounded-full"></div>
-                              Getrennt
-                            </td>
-                            <td className="p-2 text-[#4DB5D8]">
-                              Vor 2 Minuten
-                            </td>
-                          </tr>
-                          <tr className="border-b border-gray-300">
-                            <td className="p-2 text-[#4DB5D8]">REST API</td>
-                            <td className="p-2 text-[#4DB5D8] flex justify-start items-center gap-1.5">
-                              <div className="h-[10px] w-[10px] bg-green-600 rounded-full"></div>
-                              Verbunden
-                            </td>
-                            <td className="p-2 text-[#4DB5D8]">Vor 12 Sek</td>
-                          </tr>
-                          <tr className="border-b border-gray-300">
-                            <td className="p-2 text-[#4DB5D8]">CSV Import</td>
-                            <td className="p-2 text-[#4DB5D8] flex justify-start items-center gap-1.5">
-                              <div className="h-[10px] w-[10px] bg-[#7D7D7D] rounded-full"></div>
-                              Nicht konfiguriert
-                            </td>
-                            <td className="p-2 text-[#4DB5D8]">--</td>
-                          </tr>
-                          <tr className="border-b border-gray-300">
-                            <td className="p-2 text-[#4DB5D8]">MQTT 2</td>
-                            <td className="p-2 text-[#4DB5D8] flex justify-start items-center gap-1.5">
-                              <div className="h-[10px] w-[10px] bg-[#FF0000] rounded-full"></div>
-                              Verbunden
-                            </td>
-                            <td className="p-2 text-[#4DB5D8]">--</td>
-                          </tr>
-                          <tr className="border-b border-gray-300">
-                            <td className="p-2 text-[#4DB5D8]">MQTT 3</td>
-                            <td className="p-2 text-[#4DB5D8] flex justify-start items-center gap-1.5">
-                              <div className="h-[10px] w-[10px] bg-[#28A745] rounded-full"></div>
-                              Getrennt
-                            </td>
-                            <td className="p-2 text-[#4DB5D8]">--</td>
-                          </tr>
-                          <tr className="border-b border-gray-300">
-                            <td className="p-2 text-[#4DB5D8]">MQTT 4</td>
-                            <td className="p-2 text-[#4DB5D8] flex justify-start items-center gap-1.5">
-                              <div className="h-[10px] w-[10px] bg-[#28A745] rounded-full"></div>
-                              Getrennt
-                            </td>
-                            <td className="p-2 text-[#4DB5D8]">--</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    )}
-
-                    {activeTab === "OPC UA" && (
-                      <div className="text-gray-500 text-sm">
-                        Noch keine Daten…
-                      </div>
-                    )}
-                    {activeTab === "REST API" && (
-                      <div className="text-gray-500 text-sm">
-                        Noch keine Daten…
-                      </div>
-                    )}
-                    {activeTab === "CSV Import" && (
-                      <div className="text-gray-500 text-sm">
-                        Noch keine Daten…
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                <div className="w-full lg:w-[35%] mt-5 lg:mt-0">
-                  {/* Box 1 - Charts */}
-                  <div className="bg-[#F8F8FA] shadow rounded p-2">
-                    <div className="space-y-4">
-                      <div className="w-[95%] mx-auto">
-                        <div className="w-full flex justify-between items-start">
-                          <div className="h-[100%] flex flex-col gap-3 justify-between items-center w-[20%] text-sm">
-                            <p>V</p>
-                            <p>O</p>
-                          </div>
-                          <div className="w-[80%] flex-col justify-center items-center gap-3">
-                            <img
-                              src="/assets/images/dashboard/vibration.svg"
-                              className="h-[50px] w-full object-[100%]"
-                              alt=""
-                            />
-                            <h1 className="text-center text-[12px] font-[500]">
-                              Vibration (RMS)
-                            </h1>
-                          </div>
-                        </div>
-
-                        <div className="w-full flex justify-between items-start">
-                          <div className="h-[100%] flex flex-col gap-3 text-sm justify-between items-center w-[20%]">
-                            <p>20</p>
-                            <p>0</p>
-                          </div>
-                          <div className="w-[80%] flex-col justify-center items-center gap-3">
-                            <img
-                              src="/assets/images/dashboard/strome.svg"
-                              className="h-[50px] w-full object-[100%]"
-                              alt=""
-                            />
-                            <h1 className="text-center text-[12px] font-[500]">
-                              Stromauthahme (A)
-                            </h1>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Box 2 - Progress bar */}
-                  <div className="bg-white shadow rounded mt-2">
-                    <div className="bg-blue-100 px-4 py-1 rounded-t">
-                      <h2 className="text-[#0F8AB3] font-[500] text-[14px]">
-                        Systemstatus
-                      </h2>
-                    </div>
-                    <div className="px-2 py-1.5 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="w-[15%] text-gray-700 text-sm">
-                          Bet...
-                        </span>
-                        <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden mx-2 w-[80%]">
-                          <motion.div
-                            className="h-2 bg-green-500 rounded-full"
-                            initial={{ width: 0 }}
-                            animate={{ width: "88%" }}
-                            transition={{ duration: 1.2, ease: "easeOut" }}
-                          />
-                        </div>
-                        <span className="text-gray-700 text-sm w-[15%]">
-                          88%
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="w-[15%] text-gray-700 text-sm">
-                          Net...
-                        </span>
-                        <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden mx-2 w-[80%]">
-                          <motion.div
-                            className="h-2 bg-green-500 rounded-full"
-                            initial={{ width: 0 }}
-                            animate={{ width: "95%" }}
-                            transition={{ duration: 1.2, ease: "easeOut" }}
-                          />
-                        </div>
-                        <span className="text-gray-700 text-sm w-[15%]">
-                          95%
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="w-[15%] text-gray-700 text-sm">
-                          CPU
-                        </span>
-                        <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden mx-2 w-[80%]">
-                          <motion.div
-                            className="h-2 bg-green-500 rounded-full"
-                            initial={{ width: 0 }}
-                            animate={{ width: "60%" }}
-                            transition={{ duration: 1.2, ease: "easeOut" }}
-                          />
-                        </div>
-                        <span className="text-gray-700 text-sm w-[15%]">
-                          60%
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="w-[15%] text-gray-700 text-sm">
-                          GPU
-                        </span>
-                        <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden mx-2 w-[80%]">
-                          <motion.div
-                            className="h-2 bg-green-500 rounded-full"
-                            initial={{ width: 0 }}
-                            animate={{ width: "100%" }}
-                            transition={{ duration: 1.2, ease: "easeOut" }}
-                          />
-                        </div>
-                        <span className="text-gray-700 text-sm w-[15%]">
-                          100%
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* Right Section */}
-          <div className="rounded shadow md:w-[35%] flex flex-col justify-start items-start gap-5 mt-5 lg:mt-0">
-            <div className="bg-white px-5 py-7 w-full">
-              <h3 className="font-semibold mb-4 flex items-center gap-2">
-                Berichte & Trends
-              </h3>
-              <img src="/assets/images/dashboard/bar.png" alt="" />
+          {/* Content Area */}
+          <div className="flex flex-col lg:flex-row justify-between gap-4 overflow-hidden">
+            {/* Main Content - Table and Chart */}
+            <div className="w-full lg:w-[75%] flex flex-col overflow-hidden">
+              {/* Table Section */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col min-h-0">
+                <div className="overflow-auto flex-1">
+                  <table className="w-full text-xs table-fixed">
+                    <thead className="bg-[#E8E8E8] sticky top-0">
+                      <tr className="border-b border-gray-200">
+                        <th className="px-3 py-3 text-left font-semibold text-gray-700 w-[17%] whitespace-nowrap">
+                          Quelle
+                        </th>
+                        <th className="px-3 py-3 text-left font-semibold text-gray-700 w-[10%] whitespace-nowrap">
+                          Typ
+                        </th>
+                        <th className="px-3 py-3 text-left font-semibold text-gray-700 w-[13%] whitespace-nowrap">
+                          Datenqualität
+                        </th>
+                        <th className="px-3 py-3 text-left font-semibold text-gray-700 w-[13%] whitespace-nowrap">
+                          Relevanz
+                        </th>
+                        <th className="px-3 py-3 text-left font-semibold text-gray-700 w-[13%] whitespace-nowrap">
+                          Zuverlässigkeit
+                        </th>
+                        <th className="px-3 py-3 text-left font-semibold text-gray-700 w-[20%] whitespace-nowrap">
+                          Zuletzt geprüft
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {tableData.map((row, idx) => (
+                        <tr
+                          key={idx}
+                          className="border-b border-gray-200 hover:bg-gray-50"
+                        >
+                          <td className="px-3 py-2.5 text-gray-900 truncate whitespace-nowrap">
+                            {row.quelle}
+                          </td>
+                          <td className="px-3 py-2.5 text-gray-900 whitespace-nowrap">
+                            {row.typ}
+                          </td>
+                          <td className="px-3 py-2.5 text-gray-900 whitespace-nowrap">
+                            {row.datenqualität}
+                          </td>
+                          <td className="px-3 py-2.5 text-gray-900 whitespace-nowrap">
+                            {row.relevanz}
+                          </td>
+                          <td className="px-3 py-2.5 text-gray-900 whitespace-nowrap">
+                            {row.zuverlässigkeit}
+                          </td>
+                          <td className="px-3 py-2.5 text-gray-900 whitespace-nowrap">
+                            {row.zuletzt}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Chart Section */}
+              <div className="py-2 mt-3">
+                <ResponsiveContainer width="100%" height={200}>
+                  <LineChart
+                    data={chartData}
+                    margin={{ top: 25, right: 5, left: 0, bottom: 5 }}
+                  >
+                    {/* Only horizontal grid lines like in image */}
+                    <CartesianGrid
+                      strokeDasharray="0"
+                      stroke="#e5e7eb"
+                      horizontal={true}
+                      vertical={false}
+                      strokeWidth={2}
+                    />
+
+                    {/* XAxis - Clean styling like in image */}
+                    <XAxis
+                      dataKey="x"
+                      stroke="#6b7280"
+                      tick={{ fontSize: 11, fill: "#6b7280" }}
+                      axisLine={false}
+                      tickLine={false}
+                      tickMargin={10}
+                    />
+
+                    {/* YAxis - Show numbers on left side like in image */}
+                    <YAxis
+                      stroke="#6b7280"
+                      tick={{ fontSize: 11, fill: "#6b7280" }}
+                      axisLine={false}
+                      tickLine={false}
+                      domain={[0, 40]}
+                      tickMargin={10}
+                      width={30}
+                      tickCount={5}
+                      ticks={[0, 10, 20, 30, 40]}
+                    />
+
+                    {/* Tooltip */}
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: "#fff",
+                        border: "1px solid #e5e7eb",
+                        borderRadius: "6px",
+                        fontSize: "11px",
+                        boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                      }}
+                      cursor={{ stroke: "#e5e7eb", strokeWidth: 1 }}
+                    />
+
+                    {/* Custom Legend with colored squares only - no icons */}
+                    <Legend
+                      verticalAlign="top"
+                      align="right"
+                      height={40}
+                      iconSize={0}
+                      formatter={(value, entry) => (
+                        <span
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            marginLeft: "10px",
+                            fontSize: "12px",
+                            fontWeight: "500",
+                            color: "#374151",
+                          }}
+                        >
+                          <span
+                            style={{
+                              display: "inline-block",
+                              width: "12px",
+                              height: "12px",
+                              backgroundColor: entry.color,
+                              marginRight: "6px",
+                              borderRadius: "2px",
+                            }}
+                          />
+                          {value}
+                        </span>
+                      )}
+                    />
+
+                    {/* Line with dots/nodes like in image */}
+                    <Line
+                      type="monotone"
+                      dataKey="Datenqualität"
+                      stroke="#3b82f6"
+                      strokeWidth={2}
+                      dot={{ fill: "#3b82f6", r: 4, strokeWidth: 0 }}
+                      activeDot={{ r: 6, fill: "#3b82f6" }}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="Zuverlässigkeit"
+                      stroke="#008080"
+                      strokeWidth={2}
+                      dot={{ fill: "#008080", r: 4, strokeWidth: 0 }}
+                      activeDot={{ r: 6, fill: "#008080" }}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
             </div>
 
-            {/* KI Modell Status */}
-            <div className="bg-white rounded shadow w-full">
-              <h3 className="font-semibold text-black flex items-center gap-2 bg-[#EBEBEB] p-4">
-                KI-Modell Status
+            {/* Right Section - Sidebar */}
+            <div className="w-full lg:w-64 flex-shrink-0 lg:h-[350px] bg-white rounded-lg shadow-lg p-4 overflow-y-auto">
+              <h3 className="text-base font-bold text-black mb-3">
+                KI-Empfehlungen
               </h3>
-              <div className="px-5 py-7">
-              <div className="w-full flex justify-end items-center">
-              <p className="mb-1 text-sm text-black">87%</p>
-              </div>
-              <ProgressBar value={87} color="bg-green-500" />
-              <div className="w-full flex justify-end items-center mt-1">
-              <p className="mb-2 text-sm text-black">Genauigkeit</p>
-              </div>
-              </div>
-            </div>
 
-            {/* Lizenzen */}
-            <div className="bg-white rounded shadow w-full">
-              <h3 className="font-semibold bg-[#EBEBEB] p-4">Lizenzen</h3>
-              <div className="px-5 py-6">
-              <div className="mb-4">
-                <p className="text-sm text-black">Laufzeit</p>
-                <ProgressBar value={78} color="bg-green-500" />
-              </div>
-              <div className="mb-4">
-                <p className="text-sm text-black">Ablaufwarnungen</p>
-                <ProgressBar value={55} color="bg-green-500" />
-              </div>
-              <div>
-                <p className="text-sm text-black">Edge Gateway Pro</p>
-                <ProgressBar value={100} color="bg-green-500" />
-              </div>
-              </div>
+              <ul className="space-y-2 w-full text-[12px] text-gray-700 font-[600] flex flex-col gap-2.5">
+                <li className="flex gap-2 justify-start items-center">
+                  <div className="text-blue-500 h-[5px] w-[5px] rounded-full bg-black font-bold"></div>
+                  <span className="w-[80%]">
+                    Die Quelle MQTT_Extruder01 liefert stabile Echtzeitdaten.
+                  </span>
+                </li>
+                <li className="flex gap-2 justify-start items-center">
+                  <div className="text-blue-500 h-[5px] w-[5px] rounded-full bg-black font-bold"></div>
+                  <span className="w-[80%]">
+                    OPC_Silo01 weist Datenlücken auf (3 % fehlende Werte).
+                  </span>
+                </li>
+                <li className="flex gap-2 justify-start items-center">
+                  <div className="text-blue-500 h-[5px] w-[5px] rounded-full bg-black font-bold"></div>
+                  <span className="w-[80%]">
+                    Prüfen Sie die Zeitzonen-Synchronisation bei REST_EnergyAPI.
+                  </span>
+                </li>
+                <li className="flex gap-2 justify-start items-center">
+                  <div className="text-blue-500 h-[5px] w-[5px] rounded-full bg-black font-bold"></div>
+                  <span className="w-[80%]">
+                    Datenquelle CSV_Import_QC enthält Ausreißerwerte.
+                  </span>
+                </li>
+              </ul>
+
+              <p className="text-xs text-gray-700 font-[600] mt-5">
+                Hinweis: Eine höhere Datenfrequenz verbessert die
+                Modellgenauigkeit.
+              </p>
             </div>
           </div>
         </div>

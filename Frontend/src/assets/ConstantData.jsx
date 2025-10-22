@@ -360,23 +360,23 @@ export const NetzwerkData = [
 export const DataConfigStatusData = [
   {
     bgImg: "/assets/images/dashboard/d_c_card_bg1.png",
-    text: "OEE",
-    value: "88%"
+    text: "Datenqualität",
+    value: "82%"
   },
   {
     bgImg: "/assets/images/dashboard/d_c_card_bg2.png",
-    text: "Verfügbarkeit",
-    value: "25%"
+    text: "Modellrelevanz",
+    value: "Hoch"
   },
   {
     bgImg: "/assets/images/dashboard/d_c_card_bg3.png",
-    text: "aktive Alarme",
-    value: "4"
+    text: "Zuverlässigkeit",
+    value: "91%"
   },
   {
     bgImg: "/assets/images/dashboard/d_c_card_bg4.png",
-    text: "Schicht",
-    value: "94.1%"
+    text: "aktiv",
+    value: "5/7"
   }
 ]
 

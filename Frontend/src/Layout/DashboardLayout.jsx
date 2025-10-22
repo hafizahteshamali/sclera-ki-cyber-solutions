@@ -38,7 +38,7 @@ const DashboardLayout = () => {
             bg-[var(--side-bar-color)] text-white 
             transition-transform duration-300 
             fixed lg:static top-0 left-0 h-full z-40 
-            w-[70%] sm:w-[60%] lg:w-[21%] 
+            w-[100%] sm:w-[60%] lg:w-[21%] 
             ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
           `}
         >

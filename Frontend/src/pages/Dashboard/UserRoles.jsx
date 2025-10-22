@@ -274,7 +274,7 @@ const UserRoles = () => {
                                     : "bg-gray-300 peer-checked:bg-blue-600"
                                 }`}
                               ></div>
-                              <div className="absolute left-0.5 bg-white w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-4 lg:h-4 rounded-full transition-all peer-checked:translate-x-2 sm:peer-checked:translate-x-2.5 md:peer-checked:translate-x-3 lg:peer-checked:translate-x-3"></div>
+                              <div className="absolute left-0.5 bg-white w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-4 lg:h-4 rounded-full transition-all peer-checked:translate-x-2 sm:peer-checked:translate-x-2.5 md:peer-checked:translate-x-3 lg:peer-checked:translate-x-5"></div>
                             </label>
                           </td>
                         );
