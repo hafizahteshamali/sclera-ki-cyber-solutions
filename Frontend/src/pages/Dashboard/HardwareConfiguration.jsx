@@ -210,14 +210,14 @@ const HardwareConfiguration = () => {
               <div className="text-sm sm:text-base text-black flex justify-center items-center gap-2 overflow-hidden">
                 <h1 className="text-base sm:text-xl font-medium">Linie L1</h1>
                 <img
-                  src="/predictive-maintainance/assets/images/dashboard/microscope.svg"
+                  src="/assets/images/dashboard/microscope.svg"
                   alt=""
                   className="h-10 w-7 object-contain"
                 />
               </div>
               <div className="h-full w-full flex items-center justify-center">
                 <img
-                  src="/predictive-maintainance/assets/images/dashboard/linie-img.svg"
+                  src="/assets/images/dashboard/linie-img.svg"
                   alt=""
                   className="h-full w-full object-contain"
                 />

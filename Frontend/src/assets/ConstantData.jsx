@@ -15,52 +15,52 @@ export const sidebarData = [
   {
     path: "/dashboard", // index route (Werk-Overview)
     label: "Werk Overview",
-    icon: "/predictive-maintainance/assets/images/dashboard/werk-overview.svg",
+    icon: "/assets/images/dashboard/werk-overview.svg",
   },
   {
     path: "/dashboard/linien-maschinen",
     label: "Linien & Maschinen",
-    icon: "/predictive-maintainance/assets/images/dashboard/tabler_tool.svg",
+    icon: "/assets/images/dashboard/tabler_tool.svg",
   },
   {
     path: "/dashboard/wartungsplaner",
     label: "Wartungsplaner",
-    icon: "/predictive-maintainance/assets/images/dashboard/uil_calender.svg",
+    icon: "/assets/images/dashboard/uil_calender.svg",
   },
   {
     path: "/dashboard/alarme-events",
     label: "Alarme & Events",
-    icon: "/predictive-maintainance/assets/images/dashboard/alarm.svg",
+    icon: "/assets/images/dashboard/alarm.svg",
   },
   {
     path: "/dashboard/berichte",
     label: "Berichte",
-    icon: "/predictive-maintainance/assets/images/dashboard/report.svg",
+    icon: "/assets/images/dashboard/report.svg",
   },
   {
     path: "/dashboard/modelle-ki",
     label: "Modelle & KI",
-    icon: "/predictive-maintainance/assets/images/dashboard/model-ki.svg",
+    icon: "/assets/images/dashboard/model-ki.svg",
   },
   {
     path: "/dashboard/datenquellen",
     label: "Datenquellen",
-    icon: "/predictive-maintainance/assets/images/dashboard/data.svg",
+    icon: "/assets/images/dashboard/data.svg",
   },
   {
     path: "/dashboard/benutzer-rollen",
     label: "Benutzer & Rollen",
-    icon: "/predictive-maintainance/assets/images/dashboard/lucide_users.svg",
+    icon: "/assets/images/dashboard/lucide_users.svg",
   },
   {
     path: "/dashboard/hardware-konfiguration",
     label: "Hardware Konfiguration",
-    icon: "/predictive-maintainance/assets/images/dashboard/uil_setting.svg",
+    icon: "/assets/images/dashboard/uil_setting.svg",
   },
   {
     path: "/dashboard/system-audit",
     label: "System & Audit",
-    icon: "/predictive-maintainance/assets/images/dashboard/system-audit.svg",
+    icon: "/assets/images/dashboard/system-audit.svg",
   },
 ];
 
@@ -211,27 +211,27 @@ export const SessionDevice =
   [
     {
       device: "Chrome on Windows",
-      deviceIcon: "/predictive-maintainance/assets/images/dashboard/mingcute_chrome-fill.svg",
+      deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
       ip: "78.23.45 12",
-      ipIcon: "/predictive-maintainance/assets/images/dashboard/lucide_monitor.svg",
+      ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
       location: "Austria",
-      locationIcon: "/predictive-maintainance/assets/images/dashboard/tdesign_location-filled.svg",
+      locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
     },
     {
       device: "Chrome on Windows",
-      deviceIcon: "/predictive-maintainance/assets/images/dashboard/mingcute_chrome-fill.svg",
+      deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
       ip: "5.73.284.67",
-      ipIcon: "/predictive-maintainance/assets/images/dashboard/lucide_monitor.svg",
+      ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
       location: "Austria",
-      locationIcon: "/predictive-maintainance/assets/images/dashboard/tdesign_location-filled.svg",
+      locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
     },
     {
       device: "Chrome on Windows",
-      deviceIcon: "/predictive-maintainance/assets/images/dashboard/mingcute_chrome-fill.svg",
+      deviceIcon: "/assets/images/dashboard/mingcute_chrome-fill.svg",
       ip: "78.23.45 25",
-      ipIcon: "/predictive-maintainance/assets/images/dashboard/lucide_monitor.svg",
+      ipIcon: "/assets/images/dashboard/lucide_monitor.svg",
       location: "Austria",
-      locationIcon: "/predictive-maintainance/assets/images/dashboard/tdesign_location-filled.svg",
+      locationIcon: "/assets/images/dashboard/tdesign_location-filled.svg",
     }
   ]
 
@@ -332,25 +332,25 @@ export const sensors = [
 
 export const NetzwerkData = [
   {
-    icon: "/predictive-maintainance/assets/images/dashboard/material-symbols_lan-outline.svg",
+    icon: "/assets/images/dashboard/material-symbols_lan-outline.svg",
     text: "VLAN",
     percent: "3",
     sub: ""
   },
   {
-    icon: "/predictive-maintainance/assets/images/dashboard/streamline-ultimate_usb-port-1.svg",
+    icon: "/assets/images/dashboard/streamline-ultimate_usb-port-1.svg",
     text: "Ports",
     percent: "12",
     sub: ""
   },
   {
-    icon: "/predictive-maintainance/assets/images/dashboard/mingcute_time-line.svg",
+    icon: "/assets/images/dashboard/mingcute_time-line.svg",
     text: "Latenz",
     percent: "10",
     sub: "ms"
   },
   {
-    icon: "/predictive-maintainance/assets/images/dashboard/material-symbols_error-outline-rounded.svg",
+    icon: "/assets/images/dashboard/material-symbols_error-outline-rounded.svg",
     text: "Paketverlust",
     percent: "1%",
     sub: ""
@@ -359,22 +359,22 @@ export const NetzwerkData = [
 
 export const DataConfigStatusData = [
   {
-    bgImg: "/predictive-maintainance/assets/images/dashboard/d_c_card_bg1.png",
+    bgImg: "/assets/images/dashboard/d_c_card_bg1.png",
     text: "Datenqualität",
     value: "82%"
   },
   {
-    bgImg: "/predictive-maintainance/assets/images/dashboard/d_c_card_bg2.png",
+    bgImg: "/assets/images/dashboard/d_c_card_bg2.png",
     text: "Modellrelevanz",
     value: "Hoch"
   },
   {
-    bgImg: "/predictive-maintainance/assets/images/dashboard/d_c_card_bg3.png",
+    bgImg: "/assets/images/dashboard/d_c_card_bg3.png",
     text: "Zuverlässigkeit",
     value: "91%"
   },
   {
-    bgImg: "/predictive-maintainance/assets/images/dashboard/d_c_card_bg4.png",
+    bgImg: "/assets/images/dashboard/d_c_card_bg4.png",
     text: "aktiv",
     value: "5/7"
   }
@@ -406,21 +406,21 @@ export const MonitoringData = [
   {
     text: "Latenz",
     numb: "88%",
-    bg: "/predictive-maintainance/assets/images/dashboard/d_c_card_bg1.png"
+    bg: "/assets/images/dashboard/d_c_card_bg1.png"
   },
   {
     text: "Batch-Größe",
     numb: "20%",
-    bg: "/predictive-maintainance/assets/images/dashboard/d_c_card_bg2.png"
+    bg: "/assets/images/dashboard/d_c_card_bg2.png"
   },
   {
     text: "Nachrichtenrate",
     numb: "90%",
-    bg: "/predictive-maintainance/assets/images/dashboard/d_c_card_bg3.png"
+    bg: "/assets/images/dashboard/d_c_card_bg3.png"
   },
   {
     text: "Reconnects",
     numb: "31",
-    bg: "/predictive-maintainance/assets/images/dashboard/d_c_card_bg4.png"
+    bg: "/assets/images/dashboard/d_c_card_bg4.png"
   },
 ]
