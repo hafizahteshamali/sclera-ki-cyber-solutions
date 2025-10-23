@@ -5,7 +5,7 @@ import AppRoutes from './Routes/AppRoutes'
 const App = () => {
   return (
     <>
-     <BrowserRouter basename="/predictive-maintainance">
+     <BrowserRouter basename="/predictive-maintainance/">
       <AppRoutes />
      </BrowserRouter> 
     </>
