@@ -190,7 +190,7 @@ export default function MQTTConfiguration() {
         </div>
 
         {/* Status and Buttons - Compact */}
-        <div className="flex items-center justify-between pt-2">
+        <div className="flex flex-col lg:flex-row gap-5 lg:gap-0 items-center justify-between pt-2">
           <p className="text-sm text-gray-600">
             <span className="font-semibold text-green-600">Broker erreichbar.</span> Protokoll: MQTT v6.0
           </p>
