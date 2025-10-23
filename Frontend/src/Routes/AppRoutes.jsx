@@ -14,6 +14,8 @@ import SystemAudit from "../pages/Dashboard/SystemAudit";
 import DataConfiguration from "../pages/Dashboard/DataConfiguration";
 import MQTT from "../pages/Dashboard/MQTT";
 import SelectSource from "../pages/Dashboard/SelectSource";
+import Security from "../pages/Dashboard/Security";
+import SubscribeAndSample from "../pages/Dashboard/SubscribeAndSample";
 
 
 // 👇 pages import karna hoga (abhi aapko ye pages create karne padhenge)
@@ -35,6 +37,8 @@ const AppRoutes = () => {
         <Route path="datenkonfiguration" element={<DataConfiguration />} />
         <Route path="mqtt" element={<MQTT />} />
         <Route path="select-source" element={<SelectSource />} />
+        <Route path="security" element={<Security />} />
+        <Route path="subscribe-sample" element={<SubscribeAndSample />} />
       </Route>
     </Routes>
   );
