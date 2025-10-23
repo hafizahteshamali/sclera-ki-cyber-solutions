@@ -135,7 +135,7 @@ const Reports = () => {
             </button>
             <button className="flex justify-center gap-2 w-full md:w-[30%] text-xl h-[50px] items-center bg-[#F9F9FB] hover:bg-[#e8e8eb] text-black py-2 px-4 rounded-md transition-colors border border-gray-300">
               <img
-                src="/assets/images/dashboard/csv.svg"
+                src="/predictive-maintainance/assets/images/dashboard/csv.svg"
                 alt="CSV Icon"
                 className="w-6 h-6"
               />

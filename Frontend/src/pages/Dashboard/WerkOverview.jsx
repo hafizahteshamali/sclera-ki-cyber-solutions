@@ -218,7 +218,7 @@ const WerkOverview = () => {
                   Berichte & Trends
                 </h2>
                 <img
-                  src="/assets/images/dashboard/chart.svg"
+                  src="/predictive-maintainance/assets/images/dashboard/chart.svg"
                   className="object-contain"
                   alt=""
                 />

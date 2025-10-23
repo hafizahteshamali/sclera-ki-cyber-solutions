@@ -138,14 +138,14 @@ const MaintenancePlanner = () => {
             <div className="flex items-center gap-2 mb-2">
               <h1 className="text-xl md:text-2xl font-medium">Linie L1</h1>
               <img
-                src="/assets/images/dashboard/microscope.svg"
+                src="/predictive-maintainance/assets/images/dashboard/microscope.svg"
                 alt=""
                 className="h-8 w-8 object-contain"
               />
             </div>
             <div className="flex-1 flex items-center justify-center">
               <img
-                src="/assets/images/dashboard/linie-img.svg"
+                src="/predictive-maintainance/assets/images/dashboard/linie-img.svg"
                 alt=""
                 className="h-full w-full object-contain"
               />
@@ -241,7 +241,7 @@ const MaintenancePlanner = () => {
           <div className="p-5 bg-white rounded-lg shadow flex flex-col sm:flex-row gap-3">
             <button className="h-12 flex-1 bg-[#1976FB] flex justify-center items-center gap-2 text-white rounded hover:bg-blue-600 transition">
               <img
-                src="/assets/images/dashboard/mynaui_ticket.svg"
+                src="/predictive-maintainance/assets/images/dashboard/mynaui_ticket.svg"
                 className="h-6 w-6"
                 alt=""
               />
@@ -249,7 +249,7 @@ const MaintenancePlanner = () => {
             </button>
             <button className="h-12 flex-1 bg-[#1976FB] flex justify-center items-center gap-2 text-white rounded hover:bg-blue-600 transition">
               <img
-                src="/assets/images/dashboard/mynaui_ticket.svg"
+                src="/predictive-maintainance/assets/images/dashboard/mynaui_ticket.svg"
                 className="h-6 w-6"
                 alt=""
               />

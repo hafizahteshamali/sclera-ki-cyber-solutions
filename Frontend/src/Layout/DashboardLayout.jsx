@@ -65,7 +65,7 @@ const DashboardLayout = () => {
                 onClick={() => setShowProfilePopup(!showProfilePopup)}
               >
                 <img
-                  src="/assets/images/dashboard/profile.jpg"
+                  src="/predictive-maintainance/assets/images/dashboard/profile.jpg"
                   className="h-[100%] w-[100%] object-cover"
                   alt="Profile"
                 />
@@ -84,7 +84,7 @@ const DashboardLayout = () => {
                 <div className="w-full flex flex-col justify-center items-center gap-3">
                   <div className="h-15 w-15 rounded-full overflow-hidden">
                     <img
-                      src="/assets/images/dashboard/profile.jpg"
+                      src="/predictive-maintainance/assets/images/dashboard/profile.jpg"
                       className="h-full w-full object-cover"
                       alt="Profile"
                     />

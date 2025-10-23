@@ -237,13 +237,13 @@ const LineMachines = () => {
                 <div className="text-base text-black flex justify-center items-center gap-2 sm:gap-3 overflow-hidden">
                   <h1 className="text-lg sm:text-xl md:text-2xl font-medium">Linie L1</h1>
                   <img
-                    src="/assets/images/dashboard/microscope.svg"
+                    src="/predictive-maintainance/assets/images/dashboard/microscope.svg"
                     alt=""
                     className="h-8 sm:h-10 md:h-15 w-6 sm:w-8 md:w-10 object-contain flex justify-center items-center"
                   />
                 </div>
                 <div className="h-full w-full rounded flex items-center justify-center">
-                  <img src="/assets/images/dashboard/chart.png" alt="" className="h-[100%] w-[100%]" />
+                  <img src="/predictive-maintainance/assets/images/dashboard/chart.png" alt="" className="h-[100%] w-[100%]" />
                 </div>
               </div>
             )}
