@@ -17,6 +17,7 @@ import SelectSource from "../pages/Dashboard/SelectSource";
 import Security from "../pages/Dashboard/Security";
 import SubscribeAndSample from "../pages/Dashboard/SubscribeAndSample";
 import RoutingDatabase from "../pages/Dashboard/RoutingDatabase";
+import MonitoringActivation from "../pages/Dashboard/MonitoringActivation";
 
 
 // 👇 pages import karna hoga (abhi aapko ye pages create karne padhenge)
@@ -41,6 +42,7 @@ const AppRoutes = () => {
         <Route path="security" element={<Security />} />
         <Route path="subscribe-sample" element={<SubscribeAndSample />} />
         <Route path="routing-database" element={<RoutingDatabase />} />
+        <Route path="monitoring-activation" element={<MonitoringActivation />} />
       </Route>
     </Routes>
   );
