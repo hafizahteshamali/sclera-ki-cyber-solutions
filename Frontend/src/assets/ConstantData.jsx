@@ -81,20 +81,29 @@ export const WerkOverviewFilterData = [
 
 export const DashboardNavigation = [
   {
-    text: "Konfiguration",
-    url: "/dashboard/datenkonfiguration"
+    text: "MQTT",
+    icon: "/assets/images/dashboard/material-symbols_wifi-rounded.svg",
+    path: "/dashboard/mqtt"
   },
   {
-    text: "Neue Entität",
-    url: "/dashboard/linien-maschinen"
+    text: "Sicherheit",
+    icon: "/assets/images/dashboard/ic_baseline-security.svg",
+    path: "/dashboard/security"
   },
   {
-    text: "Zu Tickets",
-    url: "/dashboard/linien-maschinen"
+    text: "Subscribe & Sample",
+    icon: "/assets/images/dashboard/mdi_eye-add.svg",
+    path: "/dashboard/subscribe-sample"
   },
   {
-    text: "Zu Trends",
-    url: "/dashboard/linien-maschinen"
+    text: "Routing & Datenbank",
+    icon: "/assets/images/dashboard/streamline_database-server-1-solid.svg",
+    path: "/dashboard/routing-database"
+  },
+  {
+    text: "Monitoring & Aktivieren",
+    icon: "/assets/images/dashboard/material-symbols_monitoring-rounded.svg",
+    path: "/dashboard/monitoring-activation"
   }
 ]
 

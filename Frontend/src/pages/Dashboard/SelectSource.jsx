@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SelectSource = () => {
   const [selectedSource, setSelectedSource] = useState(null);
   const [showError, setShowError] = useState(false);
+  const navigate = useNavigate();
 
   const handleContinue = () => {
     if (!selectedSource) {
@@ -16,6 +18,9 @@ const SelectSource = () => {
     }
     // Continue logic here
     console.log("Selected source:", selectedSource);
+    if(selectedSource == "mqtt"){
+      navigate("/dashboard/mqtt");
+    }
   };
 
   const handleCancel = () => {
@@ -38,7 +43,7 @@ const SelectSource = () => {
         <div className="mb-8 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center w-full">
           {/* MQTT Option */}
           <div
-            className={`border rounded-lg w-[95%] bg-white mx-auto lg:mx-0 lg:w-[45%] p-4 cursor-pointer transition-all ${
+            className={`border rounded-lg w-[95%] bg-white mx-auto lg:mx-0 lg:w-[48%] p-4 cursor-pointer transition-all ${
               selectedSource === "mqtt"
                 ? "border-blue-500"
                 : "border-white"
@@ -63,7 +68,7 @@ const SelectSource = () => {
 
           {/* OPC UA Option */}
           <div
-            className={`border rounded-lg bg-white w-[95%] mx-auto lg:mx-0 lg:w-[45%] p-4 cursor-pointer transition-all ${
+            className={`border rounded-lg bg-white w-[95%] mx-auto lg:mx-0 lg:w-[48%] p-4 cursor-pointer transition-all ${
               selectedSource === "opcua"
                 ? "border-blue-500"
                 : "border-white"

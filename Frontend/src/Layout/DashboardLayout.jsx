@@ -5,7 +5,6 @@ import DashboardSidebar from "../Components/DashboardSidebar";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 import { IoSearchSharp } from "react-icons/io5";
 import { MdLogout, MdManageAccounts, MdSettings } from "react-icons/md";
-import { DashboardNavigation } from "../assets/ConstantData";
 
 const DashboardLayout = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -100,24 +99,6 @@ const DashboardLayout = () => {
                   </button>
                 </div>
               </div>
-
-              {/* Menu Options */}
-              <ul className="py-2 w-full flex flex-col justify-center items-center gap-4">
-                {DashboardNavigation.map((item, index) => (
-                  <li key={index}>
-                    <NavLink
-                      to={item.url}
-                      className={({ isActive }) =>
-                        `text-[var(--black-color)] font-[${
-                          isActive ? 700 : 400
-                        }]`
-                      }
-                    >
-                      {item.text}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
             </div>
           )}
           <Outlet />

@@ -4,7 +4,7 @@ import { useState } from "react"
 
 export default function Security() {
   const [formData, setFormData] = useState({
-    method: "Universität/Passwort",
+    method: "Username/Password",
     username: "admin_user",
     password: "••••••••",
     tlsVersion: "1.2",
@@ -12,6 +12,10 @@ export default function Security() {
     allowTopicPattern: "",
     denyTopicPattern: "",
     compression: "none",
+    // mTLS fields
+    caCertificate: null,
+    clientCertificate: null,
+    clientPrivateKey: null,
   })
 
   const [showSuccess, setShowSuccess] = useState(false)
@@ -24,22 +28,53 @@ export default function Security() {
     }))
   }
 
+  const handleFileUpload = (e) => {
+    const { name } = e.target
+    const file = e.target.files[0]
+    if (file) {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: file,
+      }))
+    }
+  }
+
   const handleTestSecurity = () => {
     setShowSuccess(true)
     setTimeout(() => setShowSuccess(false), 3000)
   }
 
   const handleUpdate = () => {
-    console.log("Security settings updated:", formData)
+    // Validation based on selected method
+    if (formData.method === "Username/Password") {
+      if (!formData.username.trim() || !formData.password.trim()) {
+        alert("⚠️ Bitte füllen Sie alle erforderlichen Felder aus!")
+        return
+      }
+    } else if (formData.method === "mTLS") {
+      if (!formData.caCertificate || !formData.clientCertificate || !formData.clientPrivateKey) {
+        alert("⚠️ Bitte laden Sie alle Zertifikate hoch!")
+        return
+      }
+    }
+
+    if (!formData.tlsVersion) {
+      alert("⚠️ Bitte wählen Sie eine TLS Version aus!")
+      return
+    }
+
+    // If all fields valid
+    console.log("✅ Security settings updated:", formData)
+    alert("✅ Sicherheitseinstellungen erfolgreich aktualisiert!")
   }
 
   return (
     <div className="min-h-screen px-4">
       <div className="w-full mx-auto">
-        {/* Header - Compact */}
+        {/* Header */}
         <h1 className="text-4xl font-bold text-gray-900 mb-2">Sicherheit</h1>
 
-        {/* Authentication Section - Compact */}
+        {/* Authentication Section */}
         <div className="bg-white rounded-lg shadow-sm mb-2">
           <div className="bg-blue-100 px-4 py-3 rounded-t-lg">
             <h2 className="text-sm font-semibold text-gray-800">Authentifizierung</h2>
@@ -51,59 +86,125 @@ export default function Security() {
               <label className="block text-sm font-medium text-gray-700 mb-1">Methode</label>
               <select
                 name="method"
+                required
                 value={formData.method}
                 onChange={handleInputChange}
                 className="w-full lg:w-[40%] px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
-                <option>Universität/Passwort</option>
-                <option>OAuth</option>
-                <option>LDAP</option>
+                <option value="keine">keine</option>
+                <option value="Username/Password">Username/Password</option>
+                <option value="mTLS">mTLS</option>
               </select>
             </div>
 
-            {/* Username */}
-            <div className="flex flex-col lg:flex-row items-start justify-between lg:items-center">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
-              <input
-                type="text"
-                name="username"
-                value={formData.username}
-                onChange={handleInputChange}
-                className="w-full lg:w-[40%] px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
-              />
-            </div>
+            {/* Username/Password Fields - Only show when method is Username/Password */}
+            {formData.method === "Username/Password" && (
+              <>
+                {/* Username */}
+                <div className="flex flex-col lg:flex-row items-start justify-between lg:items-center">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                  <input
+                    type="text"
+                    name="username"
+                    required
+                    value={formData.username}
+                    onChange={handleInputChange}
+                    className="w-full lg:w-[40%] px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  />
+                </div>
 
-            {/* Password */}
-            <div className="flex flex-col lg:flex-row items-start justify-between lg:items-center">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Passwort</label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                className="w-full lg:w-[40%] px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
-              />
-            </div>
+                {/* Password */}
+                <div className="flex flex-col lg:flex-row items-start justify-between lg:items-center">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Passwort</label>
+                  <input
+                    type="password"
+                    name="password"
+                    required
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    className="w-full lg:w-[40%] px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  />
+                </div>
+              </>
+            )}
+
+            {/* mTLS File Uploads - Only show when method is mTLS */}
+            {formData.method === "mTLS" && (
+              <>
+                {/* CA Certificate */}
+                <div className="flex flex-col lg:flex-row items-start justify-between lg:items-center">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">CA Zertifikat</label>
+                  <div className="w-full lg:w-[40%]">
+                    <input
+                      type="file"
+                      name="caCertificate"
+                      required
+                      onChange={handleFileUpload}
+                      accept=".crt,.pem,.cer"
+                      className="w-full px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
+                    />
+                    {formData.caCertificate && (
+                      <p className="text-xs text-green-600 mt-1">✓ {formData.caCertificate.name}</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Client Certificate */}
+                <div className="flex flex-col lg:flex-row items-start justify-between lg:items-center">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Client Zertifikat</label>
+                  <div className="w-full lg:w-[40%]">
+                    <input
+                      type="file"
+                      name="clientCertificate"
+                      required
+                      onChange={handleFileUpload}
+                      accept=".crt,.pem,.cer"
+                      className="w-full px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
+                    />
+                    {formData.clientCertificate && (
+                      <p className="text-xs text-green-600 mt-1">✓ {formData.clientCertificate.name}</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Client Private Key */}
+                <div className="flex flex-col lg:flex-row items-start justify-between lg:items-center">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Client Private Key</label>
+                  <div className="w-full lg:w-[40%]">
+                    <input
+                      type="file"
+                      name="clientPrivateKey"
+                      required
+                      onChange={handleFileUpload}
+                      accept=".key,.pem"
+                      className="w-full px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
+                    />
+                    {formData.clientPrivateKey && (
+                      <p className="text-xs text-green-600 mt-1">✓ {formData.clientPrivateKey.name}</p>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
 
             {/* TLS Version */}
             <div className="flex flex-col lg:flex-row items-start justify-between lg:items-center">
               <label className="block text-sm font-medium text-gray-700 mb-1">TLS Version</label>
               <select
                 name="tlsVersion"
+                required
                 value={formData.tlsVersion}
                 onChange={handleInputChange}
                 className="w-full lg:w-[40%] px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
-                <option>1.0</option>
-                <option>1.1</option>
-                <option>1.2</option>
-                <option>1.3</option>
+                <option value="1.2">1.2</option>
+                <option value="1.3">1.3</option>
               </select>
             </div>
           </div>
         </div>
 
-        {/* Access Control Section - Compact */}
+        {/* Access Control Section */}
         <div className="bg-white rounded-lg shadow-sm mb-2">
           <div className="bg-blue-100 px-4 py-3 rounded-t-lg">
             <h2 className="text-sm font-semibold text-gray-800">
@@ -114,7 +215,7 @@ export default function Security() {
           <div className="px-4 py-3 space-y-3.5">
             {/* ACL Aktivieren */}
             <div className="flex justify-between items-center">
-                <label className="text-sm font-medium text-gray-700 cursor-pointer">ACL aktivieren</label>
+              <label className="text-sm font-medium text-gray-700 cursor-pointer">ACL aktivieren</label>
               <input
                 type="checkbox"
                 name="aclEnabled"
@@ -159,26 +260,26 @@ export default function Security() {
                 onChange={handleInputChange}
                 className="w-full lg:w-[40%] px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
-                <option>none</option>
-                <option>gzip</option>
-                <option>deflate</option>
+                <option value="none">none</option>
+                <option value="gzip">gzip</option>
+                <option value="deflate">deflate</option>
               </select>
             </div>
           </div>
         </div>
 
-        {/* Success Message - Compact */}
+        {/* Success Message */}
         {showSuccess && (
           <div className="mb-3 p-2 bg-green-50 border border-green-200 rounded text-sm">
             <p className="text-green-700 font-medium">Authentifizierung erfolgreich. TLS aktiv.</p>
           </div>
         )}
 
-        {/* Action Buttons - Compact */}
-        <div className="flex flex-col lg:flex-row justify-end items-center gap-5 pt-2">
+        {/* Action Buttons */}
+        <div className="flex w-full flex-col lg:flex-row justify-end items-center gap-5 pt-2">
           <button
             onClick={handleTestSecurity}
-            className="px-4 py-2 w-full lg:w-[15%] bg-[#EBEBEB] text-gray-700 text-sm font-medium hover:text-gray-900 transition-colors"
+            className="px-4 py-2 w-full lg:w-[20%] bg-[#EBEBEB] text-gray-700 text-sm font-medium hover:text-gray-900 transition-colors"
           >
             Sicherheit testen
           </button>

@@ -11,8 +11,10 @@ import {
 import { DataConfigStatusData } from "../../assets/ConstantData";
 import { CiWarning } from "react-icons/ci";
 import { FaSquarePlus } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const DataConfiguration = () => {
+  const navigate = useNavigate();
   const chartData = [
     { x: 0, Datenqualität: 24 },
     { x: 10, Datenqualität: 28 },
@@ -98,7 +100,7 @@ const DataConfiguration = () => {
                   <CiWarning className="text-xl" />
                   Analyse aktualisieren
                 </button>
-                <button className="flex items-center gap-2 px-3 h-[45px] bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">
+                <button onClick={()=>navigate("/dashboard/select-source")} className="flex items-center gap-2 px-3 h-[45px] bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">
                   <FaSquarePlus className="text-xl" />
                   Datenquelle hinzufügen
                 </button>

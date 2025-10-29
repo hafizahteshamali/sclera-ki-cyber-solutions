@@ -32,11 +32,10 @@ const AppRoutes = () => {
         <Route path="alarme-events" element={<AlarmEvents />} />
         <Route path="berichte" element={<Reports />} />
         <Route path="modelle-ki" element={<ModelsKI />} />
-        <Route path="datenquellen" element={<DataSources />} />
+        <Route path="datenquellen" element={<DataConfiguration />} />
         <Route path="benutzer-rollen" element={<UserRoles />} />
         <Route path="hardware-konfiguration" element={<HardwareConfiguration />} />
         <Route path="system-audit" element={<SystemAudit />} />
-        <Route path="datenkonfiguration" element={<DataConfiguration />} />
         <Route path="mqtt" element={<MQTT />} />
         <Route path="select-source" element={<SelectSource />} />
         <Route path="security" element={<Security />} />
